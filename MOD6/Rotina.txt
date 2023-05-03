@@ -1,0 +1,51 @@
+﻿Função Acordar():
+Escreva("Desligar o despertador")
+Espere(1)
+
+
+Escreva("Escolha como quer começar o dia:")
+Escreva("- Música")
+Escreva("- Meditação")
+Opcao <- LerOpcao()
+
+
+Se Opcao = "musica" Então
+Escreva("Ligar música relaxante ou animada para começar o dia com energia")
+Espere(5) //Espere 5 segundos para a música começar
+Senão Se Opcao = "meditacao" Então
+Escreva("Sentar-se em posição confortável e meditar por 5 minutos")
+Espere(5 * 60) //Espere 5 minutos para a meditação
+FimSe
+FimFunção
+
+
+Função Levantar():
+Escreva("Colocar os pés no chão e ficar de pé")
+Espere(5) //Espere 5 segundos para se equilibrar
+
+
+Escreva("Escolha entre fazer um alongamento ou exercícios físicos para acordar o corpo:")
+Escreva("- Alongamento")
+Escreva("- Exercícios físicos")
+Opcao <- LerOpcao()
+
+
+Se Opcao = "alongamento" Então
+Escreva("Fazer um alongamento de braços, pernas e coluna por 5 minutos")
+Espere(5 * 60) //Espere 5 minutos para o alongamento
+Senão Se Opcao = "exercicios" Então
+Escreva("Fazer uma série de exercícios físicos por 10 minutos")
+Espere(10 * 60) //Espere 10 minutos para os exercícios
+FimSe
+FimFunção
+
+
+Função ArrumarCama():
+Escreva("Arrumar os lençóis e travesseiros")
+FimFunção
+
+
+// Programa principal
+Acordar()
+Levantar()
+ArrumarCama()
