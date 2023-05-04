@@ -1,5 +1,11 @@
 package tarefa;
 
+/**
+ * @author André Pereira
+ *
+ * Classe que representa um Carro
+ *
+ */
 public class Carro {
     private String nome;
     private int ano;
@@ -48,6 +54,9 @@ public class Carro {
         this.portas = portas;
     }
 
+    /**
+     * Responsavel pelo Print das informações
+     */
     public void printInfo() {
         System.out.println("Nome: " + nome);
         System.out.println("Ano: " + ano);
