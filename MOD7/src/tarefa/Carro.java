@@ -12,7 +12,10 @@ public class Carro {
     private int potencia;
     private int portas;
 
-    public Carro () {};
+    public Carro() {
+    }
+
+    ;
 
     public Carro(String nome, int ano, int potenciao, int portas) {
         super();
@@ -60,11 +63,21 @@ public class Carro {
     public void printInfo() {
         System.out.println("Nome: " + nome);
         System.out.println("Ano: " + ano);
-        System.out.println("Potencia: "+ potencia);
-        System.out.println("Portas: "+ portas);
+        System.out.println("Potencia: " + potencia);
+        System.out.println("Portas: " + portas);
         System.out.println(" ");
-
-
     }
 
+    /**
+     * Responsavel por comparar potencia e dizer o vencedor
+     */
+    public void Champs() {
+        if (Carro[0].potencia > Carro[1].potencia) {
+            System.out.println(Carro[0].nome);
+        } else {
+            System.out.println(Carro[1].nome);
+        }
+        }
+
+    }
 }

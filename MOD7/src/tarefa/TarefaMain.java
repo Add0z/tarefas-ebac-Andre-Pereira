@@ -11,8 +11,10 @@ public class TarefaMain {
         mustang.setPotencia(400);
         mustang.setPortas(2);
 
-        lancer.printInfo();
-        mustang.printInfo();
+//        lancer.printInfo();
+//        mustang.printInfo();
+        printInfo(Carro[0]);
+        Champs ();
 
     }
 }
