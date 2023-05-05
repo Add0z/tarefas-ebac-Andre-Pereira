@@ -9,20 +9,21 @@ public class Main {
 
         List media = new ArrayList<>();
         media.add(new Nota("Jose",9));
-        Nota maria = new Nota("Maria", 10);
-        media.add(maria);
-        Nota leticia = new Nota("Leticia", 10);
-        media.add(leticia);
+        media.add(new Nota("Jose",8));
+        Nota Jose = new Nota("Jose", 10);
+        media.add(Jose);
+        Nota Jose2 = new Nota("Jose", 10);
+        media.add(Jose);
 
         PrintMedia(media);
         }
     public static void PrintMedia(List<Nota> media) {
-        float mediaTurma = 0;
+        float mediaJose = 0;
         for(int x =0;x<media.size();x++){
 
-            mediaTurma += media.get(x).getNota();
+            mediaJose += media.get(x).getNota();
         }
-            mediaTurma/=media.size();
-            System.out.println("Media da Turma: " + mediaTurma);
+            mediaJose/=media.size();
+            System.out.println("Media da Turma: " + mediaJose);
     }
 }
