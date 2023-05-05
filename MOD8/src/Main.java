@@ -24,6 +24,6 @@ public class Main {
             mediaJose += media.get(x).getNota();
         }
             mediaJose/=media.size();
-            System.out.println("Media da Turma: " + mediaJose);
+            System.out.println("Media do Jose: " + mediaJose);
     }
 }
