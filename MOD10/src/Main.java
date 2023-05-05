@@ -16,7 +16,7 @@ public class Main {
         media.add(new Nota("Maria", 10));
         media.add(new Nota("Maria", 10));
         media.add(new Nota("Leticia", 8));
-        Nota maria = new Nota("Leticia", 8);
+        Nota Leticia = new Nota("Leticia", 8);
         media.add(maria);
         Nota leticia = new Nota("Leticia", 8);
         media.add(leticia);
