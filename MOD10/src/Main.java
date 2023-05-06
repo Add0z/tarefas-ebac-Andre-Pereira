@@ -7,19 +7,20 @@ public class Main {
     public static void main(String[] args) {
 
         List media = new ArrayList<>();
-        media.add(new Nota("Jose", 9));
-        media.add(new Nota("Jose", 9));
-        media.add(new Nota("Jose", 9));
-        media.add(new Nota("Jose", 9));
+        media.add(new Nota("Jose", 6));
+        media.add(new Nota("Jose", 6));
+        media.add(new Nota("Jose", 6));
+        media.add(new Nota("Jose", 6));
         media.add(new Nota("Maria", 10));
         media.add(new Nota("Maria", 10));
         media.add(new Nota("Maria", 10));
         media.add(new Nota("Maria", 10));
-        media.add(new Nota("Leticia", 8));
-        Nota Leticia = new Nota("Leticia", 8);
-        media.add(maria);
-        Nota leticia = new Nota("Leticia", 8);
-        media.add(leticia);
+        media.add(new Nota("Leticia", 4));
+        media.add(new Nota("Leticia", 4));
+        media.add(new Nota("Leticia", 4));
+        media.add(new Nota("Leticia", 4));
+
+
 
         PrintMedia(media);
     }
@@ -49,7 +50,21 @@ public class Main {
             }
             mediaTurma += mediaInd;
             mediaInd /= somaInd;
-            System.out.println(media.get(x).getNome() + " " + mediaInd);
+//            System.out.println(media.get(x).getNome() + " " + mediaInd);
+            if (mediaInd >= 7){
+                System.out.println(media.get(x).getNome() + " " + mediaInd);
+                System.out.println(media.get(x).getNome() + ": APROVADO");
+            }
+            else if (mediaInd < 7 && mediaInd >= 5 ) {
+                System.out.println(media.get(x).getNome() + " " + mediaInd);
+                System.out.println(media.get(x).getNome() + ": RECUPERAÇÃO");
+
+            }
+            else {
+                System.out.println(media.get(x).getNome() + " " + mediaInd);
+                System.out.println(media.get(x).getNome() + ": REPROVADO");
+
+            }
         }
         mediaTurma /= media.size();
         System.out.println("Media da Turma: " + mediaTurma);
