@@ -36,6 +36,13 @@ public class Main {
         System.out.println("LISTA ORDENADA POR NOTA(maior para menor)" + media);
 
 
+// ESTE METODO REQUER O toSTring() no NOTA
+        for (Nota nome: media) {
+            System.out.print(" teste-" + nome);
+
+        }
+
+
 
     }
 
