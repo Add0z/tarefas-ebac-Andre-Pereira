@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,7 +31,10 @@ public class Main {
 
         Notasort notasort = new Notasort();
         Collections.sort(media, notasort);
-        System.out.println("LISTA ORDENADA POR NOTA" + media);
+        System.out.println("LISTA ORDENADA POR NOTA(menor para maior)" + media);
+        Collections.sort(media, notasort.reversed());
+        System.out.println("LISTA ORDENADA POR NOTA(maior para menor)" + media);
+
 
 
     }
