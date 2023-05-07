@@ -36,7 +36,7 @@ public class Main {
         }
 
         System.out.println();
-
+//---------------------------------------------------------------------------------//
         System.out.println("PARTE 2");
         List Mnome = new ArrayList<>();
         List Fnome = new ArrayList<>();
