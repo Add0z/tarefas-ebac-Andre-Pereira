@@ -61,7 +61,10 @@ public class App {
                 alterar(dados);
             }
             else if (isOpcaoExcluir(opcao)) {
-//                sair();
+                String dados = JOptionPane.showInputDialog(null,
+                        "Digite o CPF do cliente",
+                        "Consulta cliente", JOptionPane.INFORMATION_MESSAGE);
+                excluir(validarCPF(dados));
             }
             else if (isOpcaoSair(opcao)) {
                 sair();
@@ -77,6 +80,11 @@ public class App {
             "CADASTRO",JOptionPane.INFORMATION_MESSAGE);
         }
 
+    }
+
+    private static void excluir(String dados) {
+        iClienteDAO.excluir(Long.parseLong(dados));
+        JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso: ", "Sucesso",JOptionPane.INFORMATION_MESSAGE);
     }
 
     private static void alterar(String dados) {
