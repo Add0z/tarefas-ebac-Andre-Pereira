@@ -15,7 +15,7 @@ public abstract class Whey {
     }
 
     public void cookUp() {
-        System.out.println("["+marca.toUpperCase()+"]"+"The " + purity + " purity has been achieved, and " + quantity + "kilos is ready to be flavored");
+        System.out.println("[{"+getClass().getSimpleName().toUpperCase()+"}]"+"The " + purity + " purity has been achieved, and " + quantity + "kilos is ready to be flavored");
     }
     public void mix() {
         System.out.println("["+marca.toUpperCase()+"]"+"The " + flavor + " flavor is ready to be add");
