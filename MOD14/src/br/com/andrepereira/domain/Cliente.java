@@ -4,7 +4,7 @@ import java.util.Objects;
 
 
 
-public class Cliente {
+public class Cliente implements Persists {
     private String nome;
     private Long cpf;
     private Long tel;
@@ -83,15 +83,14 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" +
+        return "Cliente\n" +
                 "nome = " + nome + '\n' +
-                "cpf = " + cpf +
-                "tel = " + tel +
+                "cpf = " + cpf + '\n' +
+                "tel = " + tel + '\n' +
                 "endereço = " + end + '\n' +
                 "telefone = " + numero + '\n' +
-                "cidade = '" + cidade + '\n' +
-                "estado = " + estado + '\n' +
-                '}';
+                "cidade = " + cidade + '\n' +
+                "estado = " + estado + '\n';
     }
 
     @Override
@@ -104,7 +103,14 @@ public class Cliente {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(cpf);
+    }
+
+
+    @Override
+    public Long codeCatch() {
+        return this.cpf;
     }
 }
 
