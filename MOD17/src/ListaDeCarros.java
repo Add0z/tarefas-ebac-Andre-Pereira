@@ -18,7 +18,7 @@ public class ListaDeCarros {
         listaDeCarros.add((T) Charger.class);
 //        Out ListaDeCarros class
         listaDeCarros.add((T) Supra.class);
-        
+
         listaDeCarros.add((T) "ANDRE DA SILVEIRA PEREIRA");
 //        listaDeCarros.add(12131415);
 //        listaDeCarros.add((T) 10L);
