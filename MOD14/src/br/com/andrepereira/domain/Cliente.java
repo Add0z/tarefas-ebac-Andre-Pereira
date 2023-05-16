@@ -1,11 +1,14 @@
 package br.com.andrepereira.domain;
 
+import br.com.andrepereira.Annotation.TipoChave;
+
 import java.util.Objects;
 
 
 
 public class Cliente implements Persists {
     private String nome;
+    @TipoChave("getCpf")
     private Long cpf;
     private Long tel;
     private String end;
@@ -108,10 +111,10 @@ public class Cliente implements Persists {
     }
 
 
-    @Override
-    public Long codeCatch() {
-        return this.cpf;
-    }
+//    @Override
+//    public Long codeCatch() {
+//        return this.cpf;
+//    }
 }
 
 

@@ -1,9 +1,12 @@
 package br.com.andrepereira.domain;
 
+import br.com.andrepereira.Annotation.TipoChave;
+
 import java.util.Objects;
 
 public class Produto implements Persists {
 
+    @TipoChave("getCode")
     private Long code;
     private String name;
 
@@ -29,10 +32,10 @@ public class Produto implements Persists {
         this.name = name;
     }
 
-    @Override
-    public Long codeCatch() {
-        return code;
-    }
+//    @Override
+//    public Long codeCatch() {
+//        return code;
+//    }
 
     @Override
     public String toString() {
