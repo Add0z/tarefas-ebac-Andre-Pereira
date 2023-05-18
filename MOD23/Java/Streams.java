@@ -9,7 +9,7 @@ public class Streams {
     public static List<String> chavesComValorF;
     public static List<String> chavesComValorM;
 
-    
+
     public Streams(){
         List<String> lista = List.of("Carol -f", "Bernardo -m", "Andre -m", "David -m", "Elena -f");
         Map<String, String> mapNome = new HashMap<>();

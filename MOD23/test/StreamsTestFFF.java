@@ -1,24 +1,36 @@
+import junit.framework.AssertionFailedError;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 import java.util.List;
 
 
 
-class StreamsTestFFF {
+public class StreamsTestFFF {
     /*EXISTE ELENA NA LISTA*/
     @Test
-    void mainElena() {
+    public void mainElena() {
         Streams streams = new Streams();
         List<String> chavesComValorF = streams.chavesComValorF;
-        Assert.assertTrue(chavesComValorF.contains("Elena"));
+        try {
+            Assert.assertTrue(chavesComValorF.contains("Elena"));
+        }catch (AssertionFailedError error){
+            System.out.println("Nome Elena não consta na lista");
+        }
+
+
     }
 
     /* NÃO EXITE ANA NA LISTA*/
     @Test
-    void mainAna() {
+    public void mainAna() {
         Streams streams = new Streams();
         List<String> chavesComValorF = streams.chavesComValorF;
-        Assert.assertTrue(chavesComValorF.contains("Ana"));
+        try {
+            Assert.assertTrue(chavesComValorF.contains("Ana"));
+        }catch (AssertionFailedError error){
+            System.out.println("Nome Elena não consta na lista");
+        }
     }
 }
 

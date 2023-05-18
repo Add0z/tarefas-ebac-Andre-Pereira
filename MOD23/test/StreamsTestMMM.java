@@ -1,18 +1,20 @@
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
 import java.util.List;
+import org.junit.Test;
 
 
 
-class StreamsTestMMM {
+public class StreamsTestMMM {
+    /*EXISTE ANDRÉ NA LISTA*/
     @Test
-    void mainAndre() {
+    public void mainAndre() {
         Streams streams = new Streams();
         List<String> chavesComValorM = streams.chavesComValorM;
         Assert.assertTrue(chavesComValorM.contains("Andre"));
     }
+    /*NÃO EXISTE JOSÉ NA LISTA*/
     @Test
-    void mainJose() {
+    public void mainJose() {
         Streams streams = new Streams();
         List<String> chavesComValorM = streams.chavesComValorM;
         Assert.assertTrue(chavesComValorM.contains("José"));
