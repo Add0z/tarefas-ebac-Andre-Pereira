@@ -9,13 +9,9 @@ public interface IGenericDAO <T extends Persists, E extends Serializable> {
 
      boolean cadastrar(T entity);
 
-     void excluir(E chave);
+    T consultar(E chave);
 
-    void alterar(T entity);
-     T consultar(E chave);
+    boolean alterar(T entity);
 
-     default Collection<T> buscarTodos() {
-        return null;
-    }
-
+    boolean excluir(E chave);
 }

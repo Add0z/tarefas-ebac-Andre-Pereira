@@ -40,8 +40,8 @@ public class Cliente implements Persists {
         return Cpf;
     }
 
-    public void setCpf(Long cpf) {
-        Cpf = String.valueOf(cpf);
+    public void setCpf(String cpf) {
+        this.Cpf = cpf;
     }
 
     public Cliente(String nome, String cpf, Long telefone, String endereco) {
@@ -60,17 +60,4 @@ public class Cliente implements Persists {
                 ", end= " + end + '\'';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cliente cliente = (Cliente) o;
-        return Objects.equals(Cpf, cliente.Cpf);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(Cpf);
-    }
 }
