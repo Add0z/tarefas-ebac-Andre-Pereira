@@ -14,7 +14,7 @@ public class ProdutoDAO extends GenericDAO<Produto, Long> implements IProdutoDAO
         return Produto.class;
     }
 
-    /*@Override
+    @Override
     public void alterar(Produto entity, Produto entityCadastrado) {
         entityCadastrado.setCodigo(entity.getCodigo());
         entityCadastrado.setDescricao(entity.getDescricao());
@@ -22,5 +22,5 @@ public class ProdutoDAO extends GenericDAO<Produto, Long> implements IProdutoDAO
         entityCadastrado.setValor(entity.getValor());
 
 
-    }*/
+    }
 }

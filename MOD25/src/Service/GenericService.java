@@ -1,6 +1,6 @@
 package Service;
 
-import Domain.Persists;
+import Cliente.Persists;
 import Generic.IGenericDAO;
 
 import java.io.Serializable;

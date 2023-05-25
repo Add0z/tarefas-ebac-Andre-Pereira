@@ -1,11 +1,9 @@
-import Dao.IClienteDao;
+import Cliente.Dao.IClienteDao;
 import Service.ClienteService;
-import Domain.Cliente;
-import org.junit.After;
+import Cliente.Cliente;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 
 
 public class ClienteServiceTest {
@@ -22,12 +20,6 @@ public class ClienteServiceTest {
     @Before
     public void init(){
         cliente = new Cliente("André","1231231231",99999999L,"Hilário");
-//        cliente.setCpf(1231231231L);
-//        cliente.setNome("André");
-//        cliente.setTel(99999999L);
-//        cliente.setEnd("Hilário");
-
-
     }
     @Test
     public void cadastrarCliente() {

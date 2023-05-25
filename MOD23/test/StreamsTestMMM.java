@@ -13,7 +13,7 @@ public class StreamsTestMMM {
         Assert.assertTrue(chavesComValorM.contains("Andre"));
     }
     /*NÃO EXISTE JOSÉ NA LISTA*/
-    @Test
+    @Test(expected = AssertionError.class)
     public void mainJose() {
         Streams streams = new Streams();
         List<String> chavesComValorM = streams.chavesComValorM;

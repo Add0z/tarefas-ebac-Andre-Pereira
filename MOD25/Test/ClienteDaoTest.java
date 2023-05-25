@@ -1,7 +1,6 @@
-import Dao.ClienteDao;
-import Dao.IClienteDao;
-import Domain.Cliente;
-import Service.IClienteService;
+import Cliente.Dao.ClienteDao;
+import Cliente.Dao.IClienteDao;
+import Cliente.Cliente;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,11 +19,6 @@ public class ClienteDaoTest {
     public void init(){
         cliente = new Cliente("André","1222221231",99999999L,"Hilário");
         clienteDao.cadastrar(cliente);
-//        cliente.setCpf("1231231231");
-//        cliente.setNome("André");
-//        cliente.setTel(99999999L);
-//        cliente.setEnd("Hilário");
-//        clienteDao.cadastrar(cliente);
 
     }
 

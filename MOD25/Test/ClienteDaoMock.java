@@ -1,11 +1,6 @@
-import Dao.ClienteDao;
-import Dao.IClienteDao;
-import Domain.Cliente;
-import Generic.IGenericDAO;
-import Service.ClienteService;
-
-import java.io.Serializable;
-import java.util.Collection;
+import Cliente.Dao.ClienteDao;
+import Cliente.Dao.IClienteDao;
+import Cliente.Cliente;
 
 public class ClienteDaoMock {
     public IClienteDao dao;

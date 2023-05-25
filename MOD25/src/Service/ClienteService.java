@@ -1,7 +1,6 @@
 package Service;
 
-import Dao.IClienteDao;
-import Domain.Cliente;
+import Cliente.Cliente;
 import Generic.IGenericDAO;
 
 public class ClienteService extends GenericService<Cliente, String>{

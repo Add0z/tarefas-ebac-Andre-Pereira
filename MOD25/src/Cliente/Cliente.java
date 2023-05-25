@@ -1,8 +1,6 @@
-package Domain;
+package Cliente;
 
 import Annotation.TipoChave;
-
-import java.util.Objects;
 
 public class Cliente implements Persists {
     @TipoChave("getCpf")

@@ -2,15 +2,13 @@ package Generic;
 
 
 import Annotation.TipoChave;
-import Dao.ClienteDao;
-import Domain.Persists;
+import Cliente.Persists;
 import Singleton.SingletonMap;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,7 +1,7 @@
 package Produto;
 
 import Annotation.TipoChave;
-import Domain.Persists;
+import Cliente.Persists;
 
 import java.math.BigDecimal;
 

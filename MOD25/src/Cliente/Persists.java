@@ -1,4 +1,4 @@
-package Domain;
+package Cliente;
 
 public interface Persists {
 

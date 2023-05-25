@@ -1,6 +1,6 @@
-package Dao;
+package Cliente.Dao;
 
-import Domain.Cliente;
+import Cliente.Cliente;
 import Generic.GenericDAO;
 public class ClienteDao extends GenericDAO<Cliente, String> implements IClienteDao {
 
@@ -13,11 +13,11 @@ public class ClienteDao extends GenericDAO<Cliente, String> implements IClienteD
         return Cliente.class;
     }
 
-    /*@Override
+    @Override
     public void alterar(Cliente entity, Cliente entityCadastrado) {
         entityCadastrado.setCpf(entity.getCpf());
         entityCadastrado.setNome(entity.getNome());
         entityCadastrado.setEnd(entity.getEnd());
         entityCadastrado.setTel(entityCadastrado.getTel());
-    }*/
+    }
 }

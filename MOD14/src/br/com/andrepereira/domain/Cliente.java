@@ -24,8 +24,6 @@ public class Cliente implements Persists {
         this.numero = Integer.valueOf(num.trim());
         this.cidade = cidade;
         this.estado = estado;
-
-
     }
 
     public String getNome() {

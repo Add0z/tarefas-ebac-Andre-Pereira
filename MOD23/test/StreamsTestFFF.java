@@ -22,15 +22,12 @@ public class StreamsTestFFF {
     }
 
     /* NÃO EXITE ANA NA LISTA*/
-    @Test
-    public void mainAna() {
+    @Test(expected = AssertionError.class)
+    public void mainAna() throws AssertionFailedError {
         Streams streams = new Streams();
         List<String> chavesComValorF = streams.chavesComValorF;
-        try {
-            Assert.assertTrue(chavesComValorF.contains("Ana"));
-        }catch (AssertionFailedError error){
-            System.out.println("Nome Elena não consta na lista");
-        }
+        Assert.assertTrue(chavesComValorF.contains("Ana"));
+//        throw new AbstractMethodError("Não encontrado na lista");
     }
 }
 

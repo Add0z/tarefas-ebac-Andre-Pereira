@@ -1,9 +1,8 @@
 package Generic;
-import Domain.Persists;
+import Cliente.Persists;
 
 
 import java.io.Serializable;
-import java.util.Collection;
 
 public interface IGenericDAO <T extends Persists, E extends Serializable> {
 
