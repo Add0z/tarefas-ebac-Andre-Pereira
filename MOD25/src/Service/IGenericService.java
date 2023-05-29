@@ -1,15 +1,16 @@
 package Service;
 
+import Annotation.TipochaveExcep;
 import Cliente.Persists;
 
 import java.io.Serializable;
 
 public interface IGenericService<T extends Persists, E extends Serializable> {
-    boolean cadastrar(T entity) ;
+    public Boolean cadastrar(T entity) throws TipochaveExcep ;
 
-    T consultar(E key);
+    public T consultar(E key);
 
-    boolean excluir(E key);
+   public void excluir(E key);
 
-    boolean alterar(T entity) ;
+    public void alterar(T entity)  throws TipochaveExcep;
 }

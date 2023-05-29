@@ -2,11 +2,14 @@ package Service;
 
 import Generic.GenericDAO;
 import Generic.IGenericDAO;
+import Produto.Dao.IProdutoDAO;
 import Produto.Produto;
 
-public class ProdutoService extends GenericService<Produto, Long> {
+public class ProdutoService extends GenericService<Produto, String> implements IProdutoService {
 
-    public ProdutoService(IGenericDAO<Produto, Long> dao){
+    public ProdutoService(IProdutoDAO dao) {
         super(dao);
     }
+
 }
+

@@ -3,7 +3,7 @@ package Produto.Dao;
 import Generic.GenericDAO;
 import Produto.Produto;
 
-public class ProdutoDAO extends GenericDAO<Produto, Long> implements IProdutoDAO {
+public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoDAO {
 
     public ProdutoDAO(){
         super();
@@ -15,7 +15,7 @@ public class ProdutoDAO extends GenericDAO<Produto, Long> implements IProdutoDAO
     }
 
     @Override
-    public void alterar(Produto entity, Produto entityCadastrado) {
+    public void atualizarDados(Produto entity, Produto entityCadastrado) {
         entityCadastrado.setCodigo(entity.getCodigo());
         entityCadastrado.setDescricao(entity.getDescricao());
         entityCadastrado.setNome(entity.getNome());

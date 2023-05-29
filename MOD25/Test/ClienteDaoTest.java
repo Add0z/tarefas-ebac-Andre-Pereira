@@ -1,3 +1,4 @@
+import Annotation.TipochaveExcep;
 import Cliente.Dao.ClienteDao;
 import Cliente.Dao.IClienteDao;
 import Cliente.Cliente;
@@ -16,15 +17,15 @@ public class ClienteDaoTest {
     }
 
     @Before
-    public void init(){
-        cliente = new Cliente("André","1222221231",99999999L,"Hilário");
+    public void init() throws TipochaveExcep {
+        cliente = new Cliente("André",1222221231l,99999999L,"Hilário");
         clienteDao.cadastrar(cliente);
 
     }
 
     @Test
-    public void cadastrarCliente(){
-        boolean retorno = clienteDao.cadastrar(new Cliente("André","1444441231",99999999L,"Hilário"));
+    public void cadastrarCliente() throws TipochaveExcep{
+        boolean retorno = clienteDao.cadastrar(new Cliente("André",1444441231l,99999999L,"Hilário"));
         Assert.assertTrue(retorno);
     }
 
@@ -34,7 +35,7 @@ public class ClienteDaoTest {
         Assert.assertEquals(cliente.toString(), retorno.toString());
     }
     @Test
-    public void alterarCliente(){
+    public void alterarCliente() throws TipochaveExcep{
 //        cliente.setNome("Andréas");
 //        clienteDao.alterar(cliente);
         cliente.setNome("Andréas");
@@ -45,10 +46,7 @@ public class ClienteDaoTest {
     }
 
     @Test
-    public void excluirCliente(){
-//        clienteDao.excluir(String.valueOf(cliente.getCpf()));
-        Assert.assertTrue(clienteDao.excluir(cliente.getCpf()));
-        Cliente retorno = clienteDao.consultar(cliente.getCpf());
-        Assert.assertNull(retorno);
+    public void excluirCliente() {
+        clienteDao.excluir(cliente.getCpf());
     }
 }

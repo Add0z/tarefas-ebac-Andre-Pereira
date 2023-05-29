@@ -14,11 +14,12 @@ import java.util.Map;
 
 public abstract class GenericDAO<T extends Persists, E extends Serializable> implements IGenericDAO<T, E> {
     private SingletonMap singletonMap;
-    protected GenericDAO(){this.singletonMap = SingletonMap.getInstance();}
 
     public abstract Class<T> getClassType();
 
-    //public abstract void alterar(T entity, T entityCadastrado);
+    public abstract void atualizarDados(T entity, T entityCadastrado);
+
+    protected GenericDAO(){this.singletonMap = SingletonMap.getInstance();}
 
     public E getChave(T entity){
         Field[] fields = entity.getClass().getDeclaredFields();
@@ -45,7 +46,7 @@ public abstract class GenericDAO<T extends Persists, E extends Serializable> imp
     }
 
     @Override
-    public boolean cadastrar(T entity) {
+    public Boolean cadastrar(T entity) {
         Map<E, T> mapIner = getMap();
         E chave = getChave(entity);
         if (mapIner.containsKey(chave)) {
@@ -65,28 +66,22 @@ public abstract class GenericDAO<T extends Persists, E extends Serializable> imp
     }
 
     @Override
-    public boolean excluir(E valor) {
+    public void excluir(E valor) {
         Map<E, T> mapIner = getMap();
         T objetoCadastrado = mapIner.get(valor);
         if (objetoCadastrado!=null){
             mapIner.remove(valor, objetoCadastrado);
-            return true;
         }
-        return false;
-
     }
 
     @Override
-    public boolean alterar(T entity) {
+    public void alterar(T entity) {
         Map<E, T> mapIner = getMap();
         E chave = getChave(entity);
         T objetoCadastrado = mapIner.get(chave);
         if (objetoCadastrado != null) {
-            mapIner.replace(chave,entity);
-            return true;
-            //alterar(entity, objetoCadastrado);
+            atualizarDados(entity,objetoCadastrado );
         }
-        return false;
     }
 
     @Override

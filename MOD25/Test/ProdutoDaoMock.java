@@ -1,35 +1,33 @@
+import Annotation.TipochaveExcep;
 import Produto.Dao.IProdutoDAO;
 import Produto.Dao.ProdutoDAO;
 import Produto.Produto;
 
 import java.math.BigDecimal;
 
-public class ProdutoDaoMock {
+public class ProdutoDaoMock implements IProdutoDAO {
 
-    public IProdutoDAO dao;
 
-            ProdutoDaoMock(){
-                dao = new ProdutoDAO();
-                dao.cadastrar(new Produto(1l,"telefone","iphone", new BigDecimal("5000")));
-            }
-
-    /*Produto produto = new Produto(1l,"telefone","iphone", new BigDecimal("5000"));
     @Override
-    public boolean cadastrar(Produto entity) {
-
+    public Boolean cadastrar(Produto entity) throws TipochaveExcep {
         return true;
     }
 
     @Override
-    public Produto consultar(Long chave) {
+    public Produto consultar(String valor) {
+        Produto produto = new Produto();
+        produto.setCodigo(valor);
         return produto;
     }
 
+    @Override
+    public void excluir(String chave) {
 
+    }
 
     @Override
-    public void excluir(Long chave) {
+    public void alterar(Produto entity) throws TipochaveExcep {
 
-    }*/
+    }
 }
 

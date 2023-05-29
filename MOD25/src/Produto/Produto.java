@@ -8,19 +8,23 @@ import java.math.BigDecimal;
 public class Produto implements Persists {
 
     @TipoChave("getCodigo")
-    private long codigo;
+    private String codigo;
     private String nome;
     private String descricao;
     private BigDecimal valor;
 
-    public Produto(long codigo, String nome, String descricao, BigDecimal valor){
+    public Produto(String codigo, String nome, String descricao, BigDecimal valor){
         this.codigo = codigo;
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
     }
 
-    public long getCodigo(){
+    public Produto(){
+
+    }
+
+    public String getCodigo(){
 
         return codigo;
     }
@@ -44,12 +48,12 @@ public class Produto implements Persists {
         return "Produto{" +
                 "codigo=" + codigo +
                 ", nome='" + nome + '\'' +
-                ", descricaoProduto='" + descricao + '\'' +
+                ", descricao Produto='" + descricao + '\'' +
                 ", valor=" + valor +
                 '}';
     }
 
-    public void setCodigo(long codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 

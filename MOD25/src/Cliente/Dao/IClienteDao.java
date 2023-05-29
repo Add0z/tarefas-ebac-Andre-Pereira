@@ -3,7 +3,6 @@ package Cliente.Dao;
 import Cliente.Cliente;
 import Generic.IGenericDAO;
 
-public interface IClienteDao extends IGenericDAO<Cliente, String> {
+public interface IClienteDao extends IGenericDAO<Cliente, Long> {
 
-    void alterar(Cliente entity, Cliente entityCadastrado);
 }

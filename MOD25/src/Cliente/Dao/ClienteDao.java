@@ -2,7 +2,7 @@ package Cliente.Dao;
 
 import Cliente.Cliente;
 import Generic.GenericDAO;
-public class ClienteDao extends GenericDAO<Cliente, String> implements IClienteDao {
+public class ClienteDao extends GenericDAO<Cliente, Long> implements IClienteDao {
 
     public ClienteDao(){
         super();
@@ -14,7 +14,7 @@ public class ClienteDao extends GenericDAO<Cliente, String> implements IClienteD
     }
 
     @Override
-    public void alterar(Cliente entity, Cliente entityCadastrado) {
+    public void atualizarDados(Cliente entity, Cliente entityCadastrado) {
         entityCadastrado.setCpf(entity.getCpf());
         entityCadastrado.setNome(entity.getNome());
         entityCadastrado.setEnd(entity.getEnd());

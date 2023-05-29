@@ -1,3 +1,4 @@
+import Annotation.TipochaveExcep;
 import Produto.Dao.IProdutoDAO;
 import Produto.Dao.ProdutoDAO;
 import Produto.Produto;
@@ -17,29 +18,27 @@ public class ProdutoDaoTest {
     }
 
         @Before
-        public void aux(){
+        public void aux() throws TipochaveExcep{
             //produto = new Produto(1L,"telefone", "iphone",new BigDecimal("5000"));
-            produtoDAO.cadastrar(new Produto(1L,"telefone", "iphone",new BigDecimal("5000")));
+            produtoDAO.cadastrar(new Produto("1","telefone", "iphone",new BigDecimal("5000")));
 
         }
 
         @Test
-        public void cadastroProdutoTest(){
-            boolean retorno = produtoDAO.cadastrar(new Produto(2L,"telefone", "iphone",new BigDecimal("5000")));
+        public void cadastroProdutoTest() throws TipochaveExcep {
+            boolean retorno = produtoDAO.cadastrar(new Produto("2","telefone", "iphone",new BigDecimal("5000")));
             Assert.assertTrue(retorno);
         }
 
         @Test
         public void consultarTest(){
-            Produto retorno = produtoDAO.consultar(1l);
-            /*System.out.println(produtoDAO.consultar(produto.getCodigo()));
-            System.out.println(produtoDAO.consultar(1L));*/
+                Produto retorno = produtoDAO.consultar("1");
             Assert.assertEquals(retorno.getNome(), "telefone");
         }
 
         @Test
-        public void atualizarTest(){
-        var produto = produtoDAO.consultar(1l);
+        public void atualizarTest() throws TipochaveExcep{
+        var produto = produtoDAO.consultar("1");
         produto.setDescricao("samsung");
         produtoDAO.alterar(produto);
         Produto retorno = produtoDAO.consultar(produto.getCodigo());
@@ -51,8 +50,8 @@ public class ProdutoDaoTest {
 
         @Test
         public void excluirTest(){
-        produtoDAO.excluir(1l);
-        Produto retorno = produtoDAO.consultar(1l);
+            produtoDAO.excluir("1");
+        Produto retorno = produtoDAO.consultar("1");
         Assert.assertNull(retorno);
         }
 

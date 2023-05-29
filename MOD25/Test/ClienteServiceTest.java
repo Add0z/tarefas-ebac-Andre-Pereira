@@ -1,6 +1,9 @@
+import Annotation.TipochaveExcep;
 import Cliente.Dao.IClienteDao;
 import Service.ClienteService;
 import Cliente.Cliente;
+import Service.IClienteService;
+import Service.IGenericService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,46 +11,43 @@ import org.junit.Test;
 
 public class ClienteServiceTest {
 
-    IClienteDao clienteDaoMock;
-    ClienteService clienteService;
-
-    Cliente cliente;
+    private IClienteService clienteService;
+    private Cliente cliente;
 
     public ClienteServiceTest(){
-        clienteDaoMock = new ClienteDaoMock().dao;
-        clienteService = new ClienteService(clienteDaoMock);
+        IClienteDao dao = new ClienteDaoMock();
+        clienteService = new ClienteService(dao);
     }
     @Before
     public void init(){
-        cliente = new Cliente("André","1231231231",99999999L,"Hilário");
+        cliente = new Cliente("André",1231231231l,99999999L,"Hilário");
     }
     @Test
-    public void cadastrarCliente() {
+    public void cadastrarCliente() throws TipochaveExcep {
 //            throws TipoChave {
-        boolean retorno = clienteService.cadastrar(new Cliente("Leozinho","55555231231",99999999L,"Hilário"));
+        boolean retorno = clienteService.cadastrar(new Cliente("Leozinho",55555231231l,99999999L,"Hilário"));
         Assert.assertTrue(retorno);
     }
 
 
 
     @Test
-    public void alterarCliente() {
+    public void alterarCliente() throws TipochaveExcep {
         cliente.setNome("Andrés");
         clienteService.alterar(cliente);
-        Cliente retorno = clienteService.consultar(cliente.getCpf());
-        Assert.assertEquals("Andrés", retorno.getNome());
+        Assert.assertEquals("Andrés", cliente.getNome());
     }
 
     @Test
     public void excluirCliente(){
-        clienteService.excluir(cliente.getCpf());
+        clienteService.excluir(Long.valueOf(cliente.getCpf()));
     }
 
     @Test
     public void consultarCliente(){
 
-        Cliente retorno = clienteService.consultar(cliente.getCpf());
-        Assert.assertNotNull(retorno.getNome());
+        Cliente clienteConsultado = clienteService.consultarCPF(Long.valueOf(cliente.getCpf()));
+        Assert.assertNotNull(clienteConsultado);
     }
 
 

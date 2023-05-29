@@ -4,7 +4,7 @@ import Annotation.TipoChave;
 
 public class Cliente implements Persists {
     @TipoChave("getCpf")
-    private String Cpf;
+    private Long Cpf;
     private String nome;
     private Long tel;
     private String end;
@@ -34,19 +34,23 @@ public class Cliente implements Persists {
         this.end = end;
     }
 
-    public String getCpf() {
+    public Long getCpf() {
         return Cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(Long cpf) {
         this.Cpf = cpf;
     }
 
-    public Cliente(String nome, String cpf, Long telefone, String endereco) {
+    public Cliente(String nome, Long cpf, Long telefone, String endereco) {
         this.nome = nome;
         this.Cpf = cpf;
         this.tel = telefone;
         this.end = endereco;
+    }
+
+    public Cliente(){
+
     }
 
     @Override

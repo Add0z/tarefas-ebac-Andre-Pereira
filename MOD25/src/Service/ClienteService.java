@@ -1,32 +1,22 @@
 package Service;
 
 import Cliente.Cliente;
+import Cliente.Dao.IClienteDao;
 import Generic.IGenericDAO;
 
-public class ClienteService extends GenericService<Cliente, String>{
-    public ClienteService(IGenericDAO<Cliente, String> dao){
-        super(dao);
+public class ClienteService extends GenericService<Cliente, Long>
+        implements IClienteService{
+
+
+    public ClienteService(IClienteDao clienteDAO) {
+        super(clienteDAO);
+        //this.clienteDAO = clienteDAO;
+    }
+
+    @Override
+    public Cliente consultarCPF(Long cpf) {
+        return this.dao.consultar(cpf);
     }
 
 
-
-//    @Override
-//    public boolean cadastrar(Cliente entity) {
-//        return false;
-//    }
-//
-//    @Override
-//    public Cliente buscarPorCpf(String key) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void excluir(String key) {
-//
-//    }
-//
-//    @Override
-//    public void alterar(Cliente entity) {
-//
-//    }
-}
+    }

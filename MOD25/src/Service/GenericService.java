@@ -1,37 +1,38 @@
 package Service;
 
+import Annotation.TipochaveExcep;
 import Cliente.Persists;
 import Generic.IGenericDAO;
 
 import java.io.Serializable;
 
 
-public class GenericService<T extends Persists, E extends Serializable> implements IGenericService<T, E> {
+public abstract class GenericService<T extends Persists, E extends Serializable>
+        implements IGenericService<T, E> {
 
     protected IGenericDAO<T, E> dao;
 
-    public GenericService(IGenericDAO<T, E> dao){
-
-        this.dao = dao;
+    public GenericService(IGenericDAO<T, E> dao){this.dao = dao;}
+    @Override
+    public Boolean cadastrar(T entity) throws TipochaveExcep {
+        return this.dao.cadastrar(entity);
     }
-
 
     @Override
-    public boolean cadastrar(T entity) {
-        return dao.cadastrar(entity);
-    }
-
-    public T consultar(E key) {
-        return dao.consultar(key);
+    public void excluir(E valor) {
+        this.dao.excluir(valor);
     }
     @Override
-    public boolean alterar(T entity) {
-       return dao.alterar(entity);
+
+    public void alterar(T entity)  throws TipochaveExcep  {
+         this.dao.alterar(entity);
 
     }
-    public boolean excluir(E key) {
-        return dao.excluir(key);
+    @Override
+    public T consultar(E valor) {
+        return this.dao.consultar(valor);
     }
+
 
 
 }

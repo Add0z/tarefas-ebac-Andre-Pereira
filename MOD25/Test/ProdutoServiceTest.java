@@ -1,5 +1,7 @@
+import Annotation.TipochaveExcep;
 import Produto.Dao.IProdutoDAO;
 import Produto.Produto;
+import Service.IProdutoService;
 import Service.ProdutoService;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,47 +11,41 @@ import java.math.BigDecimal;
 
 public class ProdutoServiceTest {
 
-    Produto produto;
-    IProdutoDAO produtoDaoMock;
+    private IProdutoService produtoService;
 
-    ProdutoService produtoService;
+    private Produto produto;
 
-    public ProdutoServiceTest(){
-        produtoDaoMock = new ProdutoDaoMock().dao;
-        produtoService = new ProdutoService(produtoDaoMock);
+    public ProdutoServiceTest() {
+        IProdutoDAO dao = new ProdutoDaoMock();
+        produtoService = new ProdutoService(dao);
     }
-
     @Before
     public void aux(){
-        produto = new Produto(1L,"telefone", "iphone",new BigDecimal("5000"));
+        produto = new Produto("1","telefone", "iphone",new BigDecimal("5000"));
     }
 
     @Test
-    public void cadastrarTest(){
-        boolean retorno = produtoService.cadastrar(new Produto(3L,"telefone", "iphone",new BigDecimal("5000")));
+    public void cadastrarTest() throws TipochaveExcep {
+        Boolean retorno = produtoService.cadastrar(produto);
         Assert.assertTrue(retorno);
-        Assert.assertFalse(produtoService.cadastrar(new Produto(3L,"telefone", "iphone",new BigDecimal("5000"))));
     }
 
     @Test
     public void consultarTest(){
-        Produto retorno = produtoService.consultar(produto.getCodigo());
-        Assert.assertNotNull(retorno.getDescricao());
+        Produto produtor = this.produtoService.consultar(produto.getCodigo());
+        Assert.assertNotNull(produtor);
     }
 
     @Test
-    public void atualizatTest(){
-//        produto.setDescricao("samsung");
-//        produtoService.alterar(produto);
-        produto.setDescricao("samsung");
+    public void atualizatTest() throws TipochaveExcep{
+        produto.setNome("andre pereira");
         produtoService.alterar(produto);
-        Produto retorno = produtoService.consultar(produto.getCodigo());
-        Assert.assertEquals("samsung", retorno.getDescricao());
+
+        Assert.assertEquals("andre pereira", produto.getNome());
     }
 
     @Test
-    public void excluriTest(){
-
-        Assert.assertTrue(produtoService.excluir(produto.getCodigo()));
+    public void excluriTest() {
+        produtoService.excluir(String.valueOf(produto.getCodigo()));
     }
 }

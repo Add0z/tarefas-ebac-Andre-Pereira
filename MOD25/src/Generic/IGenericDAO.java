@@ -1,4 +1,5 @@
 package Generic;
+import Annotation.TipochaveExcep;
 import Cliente.Persists;
 
 
@@ -6,11 +7,11 @@ import java.io.Serializable;
 
 public interface IGenericDAO <T extends Persists, E extends Serializable> {
 
-     boolean cadastrar(T entity);
+    public Boolean cadastrar(T entity) throws TipochaveExcep;
 
-    T consultar(E chave);
+    public T consultar(E valor);
 
-    boolean alterar(T entity);
+    public void alterar(T entity) throws TipochaveExcep;
 
-    boolean excluir(E chave);
+    public void excluir(E chave);
 }

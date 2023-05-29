@@ -1,35 +1,28 @@
+import Annotation.TipochaveExcep;
 import Cliente.Dao.ClienteDao;
 import Cliente.Dao.IClienteDao;
 import Cliente.Cliente;
 
-public class ClienteDaoMock {
-    public IClienteDao dao;
-
-    ClienteDaoMock(){
-        dao = new ClienteDao();
-        dao.cadastrar(new Cliente("André", "1231231231", 99999999l,"Hilário"));
-    }
+public class ClienteDaoMock implements IClienteDao {
 
 
-    /*@Override
-    public boolean cadastrar(Cliente entity) {
+    @Override
+    public Boolean cadastrar(Cliente entity) throws TipochaveExcep {
         return true;
     }
 
     @Override
-    public void excluir(String chave) {
-
-    }
-
-    @Override
-    public void alterar(Cliente entity) {
-        cliente.setNome(entity.getNome());
-
-    }
-
-    @Override
-    public Cliente consultar(String Cpf) {
+    public Cliente consultar(Long chave) {
+        Cliente cliente = new Cliente();
+        cliente.setCpf(chave);
         return cliente;
-    }*/
+    }
 
+    @Override
+    public void excluir(Long chave) {
+    }
+
+    @Override
+    public void alterar(Cliente entity) throws TipochaveExcep {
+    }
 }
