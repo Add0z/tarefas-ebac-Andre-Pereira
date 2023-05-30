@@ -44,6 +44,20 @@ public class Produto implements Persistente {
 	public void setPacote(String pacote) {
 		this.pacote = pacote;
 	}
+//	-------------------------------------------------------------
+
+//	TAREFA DIFICIL
+@ColunaTabela(dbName = "estoque", setJavaName = "setEstoque")
+private Integer estoque;
+
+	public Integer getEstoque() {
+		return estoque;
+	}
+
+	public void setEstoque(Integer estoque) {
+		this.estoque = estoque;
+	}
+
 
 	public String getCodigo() {
 		return codigo;

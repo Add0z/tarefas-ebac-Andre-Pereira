@@ -34,7 +34,7 @@ public interface IGenericService <T extends Persistente, E extends Serializable>
     public void excluir(E valor) throws DAOException;
 
     /**
-     *Método para alterar um registro no bando de dados.
+     *Método para alterar um registro no banco de dados.
      *
      * @param entity a ser atualizado
      * @throws DAOException 

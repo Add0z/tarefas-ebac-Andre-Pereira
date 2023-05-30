@@ -31,6 +31,8 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 		entityCadastrado.setNome(entity.getNome());
 		entityCadastrado.setValor(entity.getValor());
 		entityCadastrado.setPacote(entity.getPacote());
+		entityCadastrado.setEstoque(entity.getEstoque());
+
 
 	}
 
@@ -38,8 +40,8 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 	protected String getQueryInsercao() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("INSERT INTO TB_PRODUTO ");
-		sb.append("(ID, CODIGO, NOME, DESCRICAO, VALOR, PACOTE)");
-		sb.append("VALUES (nextval('sq_produto'),?,?,?,?,?)");
+		sb.append("(ID, CODIGO, NOME, DESCRICAO, VALOR, PACOTE, ESTOQUE)");
+		sb.append("VALUES (nextval('sq_produto'),?,?,?,?,?,?)");
 		return sb.toString();
 	}
 
@@ -51,6 +53,8 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 		stmInsert.setBigDecimal(4, entity.getValor());
 		//	TAREFA MOD30 -------------------------------------------
 		stmInsert.setString(5, entity.getPacote());
+		stmInsert.setInt(6, entity.getEstoque());
+
 
 	}
 
@@ -72,7 +76,9 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 		sb.append("NOME = ?,");
 		sb.append("DESCRICAO = ?,");
 		sb.append("VALOR = ?,");
-		sb.append("PACOTE = ?");
+		sb.append("PACOTE = ?,");
+		sb.append("ESTOQUE = ?");
+
 
 		sb.append(" WHERE CODIGO = ?");
 		return sb.toString();
@@ -85,7 +91,9 @@ public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoD
 		stmUpdate.setString(3, entity.getDescricao());
 		stmUpdate.setBigDecimal(4, entity.getValor());
 		stmUpdate.setString(5, entity.getPacote());
-		stmUpdate.setString(6, entity.getCodigo());
+		stmUpdate.setInt(6, entity.getEstoque());
+
+		stmUpdate.setString(7, entity.getCodigo());
 	}
 
 	@Override

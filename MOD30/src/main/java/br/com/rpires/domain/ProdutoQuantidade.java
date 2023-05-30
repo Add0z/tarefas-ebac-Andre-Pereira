@@ -7,13 +7,17 @@ import java.math.BigDecimal;
 
 import anotacao.ColunaTabela;
 import anotacao.Tabela;
+import br.com.rpires.dao.IProdutoDAO;
+import br.com.rpires.dao.ProdutoDAO;
+import br.com.rpires.exceptions.DAOException;
+import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 
 /**
  * @author rodrigo.pires
  *
  */
 @Tabela("TB_PRODUTO_QUANTIDADE")
-public class ProdutoQuantidade {
+public class ProdutoQuantidade extends Produto {
 	
 	@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Long id;
@@ -65,11 +69,27 @@ public class ProdutoQuantidade {
 		this.id = id;
 	}
 
-	public void adicionar(Integer quantidade) {
-		this.quantidade += quantidade;
-		BigDecimal novoValor = this.produto.getValor().multiply(BigDecimal.valueOf(quantidade));
-		BigDecimal novoTotal = this.valorTotal.add(novoValor);
-		this.valorTotal = novoTotal;
+	public void adicionar(Integer quantidade, Integer estoque) {
+		if( quantidade < estoque){
+			this.quantidade += quantidade;
+			BigDecimal novoValor = this.produto.getValor().multiply(BigDecimal.valueOf(quantidade));
+			BigDecimal novoTotal = this.valorTotal.add(novoValor);
+			this.valorTotal = novoTotal;
+			this.produto.setEstoque(estoque - quantidade);
+			ProdutoDAO produtoDAO = new ProdutoDAO();
+			try {
+				produtoDAO.alterar(this.produto);
+			} catch (TipoChaveNaoEncontradaException e) {
+				throw new RuntimeException(e);
+			} catch (DAOException e) {
+				throw new RuntimeException(e);
+			}
+
+		} else {
+			System.out.println("IMPOSSÍVEL REALIZAR VENDA - ESTOQUE INSUFICIENTE");
+//			throw new UnsupportedOperationException("IMPOSSÍVEL REALIZAR VENDA - ESTOQUE INSUFICIENTE");
+		}
+
 	}
 	
 	public void remover(Integer quantidade) {

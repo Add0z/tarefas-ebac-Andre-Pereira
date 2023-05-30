@@ -80,19 +80,21 @@ public class Venda implements Persistente {
 		return produtos;
 	}
 
-	public void adicionarProduto(Produto produto, Integer quantidade) {
+	public void adicionarProduto(Produto produto, Integer quantidade, Integer estoque) {
 		validarStatus();
 		Optional<ProdutoQuantidade> op = 
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();
 		if (op.isPresent()) {
 			ProdutoQuantidade produtpQtd = op.get();
-			produtpQtd.adicionar(quantidade);
+			produtpQtd.adicionar(quantidade, estoque);
 		} else {
 			// Criar fabrica para criar ProdutoQuantidade
 			ProdutoQuantidade prod = new ProdutoQuantidade();
 			prod.setProduto(produto);
-			prod.adicionar(quantidade);
+			prod.adicionar(quantidade, estoque);
 			produtos.add(prod);
+
+
 		}
 		recalcularValorTotalVenda();
 	}

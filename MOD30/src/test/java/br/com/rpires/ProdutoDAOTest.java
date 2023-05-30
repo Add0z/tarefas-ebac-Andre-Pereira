@@ -54,6 +54,8 @@ public class ProdutoDAOTest {
 		produto.setNome("Produto 1");
 		produto.setValor(BigDecimal.TEN);
 		produto.setPacote("S");
+		produto.setEstoque(10);
+
 		produtoDao.cadastrar(produto);
 		return produto;
 	}

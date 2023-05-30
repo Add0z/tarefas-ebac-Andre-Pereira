@@ -102,9 +102,18 @@ public class VendaDAOTest {
 		Venda vendaConsultada = vendaDao.consultar(venda.getCodigo());
 		assertTrue(vendaConsultada.getId() != null);
 		assertEquals(venda.getCodigo(), vendaConsultada.getCodigo());
-	} 
-	
-	
+	}
+
+
+	@Test
+	public void salvarSEMestoque() throws TipoChaveNaoEncontradaException, DAOException, MaisDeUmRegistroException, TableException {
+		Venda venda = criarVendaSemEstoque("A2");
+		Boolean retorno = vendaDao.cadastrar(venda);
+		//ASSERT FALSE POIS NÃO É PARA CADASTRAR VENDA SEM ESTOQUE
+		assertFalse(retorno);
+	}
+
+
 	@Test
 	public void cancelarVenda() throws TipoChaveNaoEncontradaException, MaisDeUmRegistroException, TableException, DAOException {
 		String codigoVenda = "A3";
@@ -131,7 +140,7 @@ public class VendaDAOTest {
 		assertEquals(codigoVenda, venda.getCodigo());
 		
 		Venda vendaConsultada = vendaDao.consultar(codigoVenda);
-		vendaConsultada.adicionarProduto(produto, 1);
+		vendaConsultada.adicionarProduto(produto, 1, this.produto.getEstoque());
 		
 		assertTrue(vendaConsultada.getQuantidadeTotalProdutos() == 3);
 		BigDecimal valorTotal = BigDecimal.valueOf(30).setScale(2, RoundingMode.HALF_DOWN);
@@ -153,7 +162,7 @@ public class VendaDAOTest {
 		assertEquals(codigoVenda, prod.getCodigo());
 		
 		Venda vendaConsultada = vendaDao.consultar(codigoVenda);
-		vendaConsultada.adicionarProduto(prod, 1);
+		vendaConsultada.adicionarProduto(prod, 1, this.produto.getEstoque());
 		
 		assertTrue(vendaConsultada.getQuantidadeTotalProdutos() == 3);
 		BigDecimal valorTotal = BigDecimal.valueOf(70).setScale(2, RoundingMode.HALF_DOWN);
@@ -186,7 +195,7 @@ public class VendaDAOTest {
 		assertEquals(codigoVenda, prod.getCodigo());
 		
 		Venda vendaConsultada = vendaDao.consultar(codigoVenda);
-		vendaConsultada.adicionarProduto(prod, 1);
+		vendaConsultada.adicionarProduto(prod, 1, this.produto.getEstoque());
 		assertTrue(vendaConsultada.getQuantidadeTotalProdutos() == 3);
 		BigDecimal valorTotal = BigDecimal.valueOf(70).setScale(2, RoundingMode.HALF_DOWN);
 		assertTrue(vendaConsultada.getValorTotal().equals(valorTotal));
@@ -213,7 +222,7 @@ public class VendaDAOTest {
 		assertEquals(codigoVenda, prod.getCodigo());
 		
 		Venda vendaConsultada = vendaDao.consultar(codigoVenda);
-		vendaConsultada.adicionarProduto(prod, 1);
+		vendaConsultada.adicionarProduto(prod, 1, this.produto.getEstoque());
 		assertTrue(vendaConsultada.getQuantidadeTotalProdutos() == 3);
 		BigDecimal valorTotal = BigDecimal.valueOf(70).setScale(2, RoundingMode.HALF_DOWN);
 		assertTrue(vendaConsultada.getValorTotal().equals(valorTotal));
@@ -240,7 +249,7 @@ public class VendaDAOTest {
 		assertEquals(codigoVenda, prod.getCodigo());
 		
 		Venda vendaConsultada = vendaDao.consultar(codigoVenda);
-		vendaConsultada.adicionarProduto(prod, 1);
+		vendaConsultada.adicionarProduto(prod, 1, this.produto.getEstoque());
 		assertTrue(vendaConsultada.getQuantidadeTotalProdutos() == 3);
 		BigDecimal valorTotal = BigDecimal.valueOf(70).setScale(2, RoundingMode.HALF_DOWN);
 		assertTrue(vendaConsultada.getValorTotal().equals(valorTotal));
@@ -282,7 +291,7 @@ public class VendaDAOTest {
 		assertEquals(venda.getCodigo(), vendaConsultada.getCodigo());
 		assertEquals(Status.CONCLUIDA, vendaConsultada.getStatus());
 		
-		vendaConsultada.adicionarProduto(this.produto, 1);
+		vendaConsultada.adicionarProduto(this.produto, 1, this.produto.getEstoque());
 		
 	}
 
@@ -293,6 +302,7 @@ public class VendaDAOTest {
 		produto.setNome("Produto 1");
 		produto.setValor(valor);
 		produto.setPacote("S");
+		produto.setEstoque(10);
 		produtoDao.cadastrar(produto);
 		return produto;
 	}
@@ -311,16 +321,27 @@ public class VendaDAOTest {
 		return cliente;
 	}
 	
-	private Venda criarVenda(String codigo) {
+	private Venda criarVenda(String codigo) throws DAOException, TipoChaveNaoEncontradaException {
 		Venda venda = new Venda();
 		venda.setCodigo(codigo);
 		venda.setDataVenda(Instant.now());
 		venda.setCliente(this.cliente);
 		venda.setStatus(Status.INICIADA);
-		venda.adicionarProduto(this.produto, 2);
+		venda.adicionarProduto(this.produto, 2, this.produto.getEstoque());
 		return venda;
 	}
-	
+
+	private Venda criarVendaSemEstoque(String codigo) {
+		Venda venda1 = new Venda();
+		venda1.setCodigo(codigo);
+		venda1.setDataVenda(Instant.now());
+		venda1.setCliente(this.cliente);
+		venda1.setStatus(Status.INICIADA);
+		venda1.adicionarProduto(this.produto, 100,  this.produto.getEstoque());
+		return venda1;
+	}
+
+
 	private void excluirVendas() throws DAOException {
 		String sqlProd = "DELETE FROM TB_PRODUTO_QUANTIDADE";
 		executeDelete(sqlProd);

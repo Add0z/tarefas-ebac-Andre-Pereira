@@ -3,6 +3,8 @@
  */
 package br.com.rpires.dao;
 
+import java.lang.reflect.Field;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +20,7 @@ import java.util.Set;
 import br.com.rpires.dao.factory.ProdutoQuantidadeFactory;
 import br.com.rpires.dao.factory.VendaFactory;
 import br.com.rpires.dao.generic.GenericDAO;
+import br.com.rpires.domain.Produto;
 import br.com.rpires.domain.ProdutoQuantidade;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.domain.Venda.Status;
@@ -80,6 +83,14 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 			stm.setString(1, Status.CANCELADA.name());
 			stm.setLong(2, venda.getId());
 			stm.executeUpdate();
+//			for (Produto fields :venda.getProdutos() ){
+//				for (ProdutoQuantidade fieldss : venda.getProdutos()){
+//					fields.setEstoque(fieldss.getQuantidade()+ fields.getEstoque());
+//					ProdutoDAO produtoDAO = new ProdutoDAO();
+//					produtoDAO.alterar(fields);
+//				}
+//
+//			}
 			
 		} catch (SQLException e) {
 			throw new DAOException("ERRO ATUALIZANDO OBJETO ", e);
@@ -232,33 +243,35 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 	public Boolean cadastrar(Venda entity) throws TipoChaveNaoEncontradaException, DAOException {
 		Connection connection = null;
     	PreparedStatement stm = null;
-    	try {
-    		connection = getConnection();
-			stm = connection.prepareStatement(getQueryInsercao(), Statement.RETURN_GENERATED_KEYS);
-			setParametrosQueryInsercao(stm, entity);
-			int rowsAffected = stm.executeUpdate();
+		if(entity.getValorTotal() != BigDecimal.ZERO) {
+			try {
+				connection = getConnection();
+				stm = connection.prepareStatement(getQueryInsercao(), Statement.RETURN_GENERATED_KEYS);
+				setParametrosQueryInsercao(stm, entity);
+				int rowsAffected = stm.executeUpdate();
 
-			if(rowsAffected > 0) {
-				try (ResultSet rs = stm.getGeneratedKeys()){
-					if (rs.next()) {
-						entity.setId(rs.getLong(1));
+				if(rowsAffected > 0) {
+					try (ResultSet rs = stm.getGeneratedKeys()){
+						if (rs.next()) {
+							entity.setId(rs.getLong(1));
+						}
 					}
+
+					for (ProdutoQuantidade prod : entity.getProdutos()) {
+						stm = connection.prepareStatement(getQueryInsercaoProdQuant());
+						setParametrosQueryInsercaoProdQuant(stm, entity, prod);
+						rowsAffected = stm.executeUpdate();
+					}
+
+
+					return true;
 				}
-				
-				for (ProdutoQuantidade prod : entity.getProdutos()) {
-					stm = connection.prepareStatement(getQueryInsercaoProdQuant());
-					setParametrosQueryInsercaoProdQuant(stm, entity, prod);
-					rowsAffected = stm.executeUpdate();
-				}
-				
-				
-				return true;
+
+			} catch (SQLException e) {
+				throw new DAOException("ERRO CADASTRANDO OBJETO ", e);
+			} finally {
+				closeConnection(connection, stm, null);
 			}
-			
-		} catch (SQLException e) {
-			throw new DAOException("ERRO CADASTRANDO OBJETO ", e);
-		} finally {
-			closeConnection(connection, stm, null);
 		}
 		return false;
 	}
