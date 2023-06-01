@@ -3,7 +3,6 @@
  */
 package br.com.rpires.dao;
 
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +20,7 @@ import br.com.rpires.dao.factory.ProdutoQuantidadeFactory;
 import br.com.rpires.dao.factory.VendaFactory;
 import br.com.rpires.dao.generic.GenericDAO;
 import br.com.rpires.domain.Produto;
-import br.com.rpires.domain.ProdutoQuantidade;
+import br.com.rpires.domain.ProdutoVenda;
 import br.com.rpires.domain.Venda;
 import br.com.rpires.domain.Venda.Status;
 import br.com.rpires.exceptions.DAOException;
@@ -83,14 +82,24 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 			stm.setString(1, Status.CANCELADA.name());
 			stm.setLong(2, venda.getId());
 			stm.executeUpdate();
-//			for (Produto fields :venda.getProdutos() ){
-//				for (ProdutoQuantidade fieldss : venda.getProdutos()){
-//					fields.setEstoque(fieldss.getQuantidade()+ fields.getEstoque());
-//					ProdutoDAO produtoDAO = new ProdutoDAO();
-//					produtoDAO.alterar(fields);
-//				}
-//
-//			}
+
+			venda.getProdutos().forEach(produtoVenda -> {
+				Produto produto = produtoVenda.getProduto();
+				produto.setEstoque(produtoVenda.getQuantidade() + produto.getEstoque());
+				ProdutoDAO produtoDAO = new ProdutoDAO();
+				try {
+					produtoDAO.alterar(produto);
+				} catch (TipoChaveNaoEncontradaException|DAOException e) {
+					throw new RuntimeException(e);
+				}
+			});
+
+			/*for (ProdutoVenda produtoVenda [:]venda.getProdutos() ){
+				Produto produto = produtoVenda.getProduto();
+				produto.setEstoque(produtoVenda.getQuantidade() + produto.getEstoque());
+				ProdutoDAO produtoDAO = new ProdutoDAO();
+				produtoDAO.alterar(produto);
+			}*/
 			
 		} catch (SQLException e) {
 			throw new DAOException("ERRO ATUALIZANDO OBJETO ", e);
@@ -193,9 +202,9 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		    stmProd = connection.prepareStatement(sbProd.toString());
 		    stmProd.setLong(1, venda.getId());
 		    rsProd = stmProd.executeQuery();
-		    Set<ProdutoQuantidade> produtos = new HashSet<>();
+		    Set<ProdutoVenda> produtos = new HashSet<>();
 		    while(rsProd.next()) {
-		    	ProdutoQuantidade prodQ = ProdutoQuantidadeFactory.convert(rsProd);
+		    	ProdutoVenda prodQ = ProdutoQuantidadeFactory.convert(rsProd);
 		    	produtos.add(prodQ);
 		    }
 		    venda.setProdutos(produtos);
@@ -257,7 +266,7 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 						}
 					}
 
-					for (ProdutoQuantidade prod : entity.getProdutos()) {
+					for (ProdutoVenda prod : entity.getProdutos()) {
 						stm = connection.prepareStatement(getQueryInsercaoProdQuant());
 						setParametrosQueryInsercaoProdQuant(stm, entity, prod);
 						rowsAffected = stm.executeUpdate();
@@ -284,7 +293,7 @@ public class VendaDAO extends GenericDAO<Venda, String> implements IVendaDAO {
 		return sb.toString();
 	}
 	
-	private void setParametrosQueryInsercaoProdQuant(PreparedStatement stm, Venda venda, ProdutoQuantidade prod) throws SQLException {
+	private void setParametrosQueryInsercaoProdQuant(PreparedStatement stm, Venda venda, ProdutoVenda prod) throws SQLException {
 		stm.setLong(1, prod.getProduto().getId());
 		stm.setLong(2, venda.getId());
 		stm.setInt(3, prod.getQuantidade());

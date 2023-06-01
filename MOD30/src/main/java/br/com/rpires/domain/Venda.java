@@ -45,7 +45,7 @@ public class Venda implements Persistente {
 	private Cliente cliente;
 	
 	//@ColunaTabela(dbName = "id", setJavaName = "setId")
-	private Set<ProdutoQuantidade> produtos;
+	private Set<ProdutoVenda> produtos;
 	
 	@ColunaTabela(dbName = "valor_total", setJavaName = "setValorTotal")
 	private BigDecimal valorTotal;
@@ -76,20 +76,20 @@ public class Venda implements Persistente {
 		this.cliente = cliente;
 	}
 
-	public Set<ProdutoQuantidade> getProdutos() {
+	public Set<ProdutoVenda> getProdutos() {
 		return produtos;
 	}
 
 	public void adicionarProduto(Produto produto, Integer quantidade, Integer estoque) {
 		validarStatus();
-		Optional<ProdutoQuantidade> op = 
+		Optional<ProdutoVenda> op =
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();
 		if (op.isPresent()) {
-			ProdutoQuantidade produtpQtd = op.get();
+			ProdutoVenda produtpQtd = op.get();
 			produtpQtd.adicionar(quantidade, estoque);
 		} else {
 			// Criar fabrica para criar ProdutoQuantidade
-			ProdutoQuantidade prod = new ProdutoQuantidade();
+			ProdutoVenda prod = new ProdutoVenda();
 			prod.setProduto(produto);
 			prod.adicionar(quantidade, estoque);
 			produtos.add(prod);
@@ -107,11 +107,11 @@ public class Venda implements Persistente {
 	
 	public void removerProduto(Produto produto, Integer quantidade) {
 		validarStatus();
-		Optional<ProdutoQuantidade> op = 
+		Optional<ProdutoVenda> op =
 				produtos.stream().filter(filter -> filter.getProduto().getCodigo().equals(produto.getCodigo())).findAny();
 		
 		if (op.isPresent()) {
-			ProdutoQuantidade produtpQtd = op.get();
+			ProdutoVenda produtpQtd = op.get();
 			if (produtpQtd.getQuantidade()>quantidade) {
 				produtpQtd.remover(quantidade);
 				recalcularValorTotalVenda();
@@ -139,7 +139,7 @@ public class Venda implements Persistente {
 	public void recalcularValorTotalVenda() {
 		//validarStatus();
 		BigDecimal valorTotal = BigDecimal.ZERO;
-		for (ProdutoQuantidade prod : this.produtos) {
+		for (ProdutoVenda prod : this.produtos) {
 			valorTotal = valorTotal.add(prod.getValorTotal());
 		}
 		this.valorTotal = valorTotal;
@@ -177,7 +177,7 @@ public class Venda implements Persistente {
 		this.valorTotal = valorTotal;
 	}
 
-	public void setProdutos(Set<ProdutoQuantidade> produtos) {
+	public void setProdutos(Set<ProdutoVenda> produtos) {
 		this.produtos = produtos;
 	}
 	

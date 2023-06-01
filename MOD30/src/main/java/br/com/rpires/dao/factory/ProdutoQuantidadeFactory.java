@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.rpires.domain.Produto;
-import br.com.rpires.domain.ProdutoQuantidade;
+import br.com.rpires.domain.ProdutoVenda;
 
 /**
  * @author rodrigo.pires
@@ -15,9 +15,9 @@ import br.com.rpires.domain.ProdutoQuantidade;
  */
 public class ProdutoQuantidadeFactory {
 
-	public static ProdutoQuantidade convert(ResultSet rs) throws SQLException {
+	public static ProdutoVenda convert(ResultSet rs) throws SQLException {
 		Produto prod = ProdutoFactory.convert(rs);
-		ProdutoQuantidade prodQ = new ProdutoQuantidade();
+		ProdutoVenda prodQ = new ProdutoVenda();
 		prodQ.setProduto(prod);
 		prodQ.setId(rs.getLong("ID"));
 		prodQ.setQuantidade(rs.getInt("QUANTIDADE"));

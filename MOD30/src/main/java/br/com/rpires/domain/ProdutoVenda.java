@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 
 import anotacao.ColunaTabela;
 import anotacao.Tabela;
-import br.com.rpires.dao.IProdutoDAO;
 import br.com.rpires.dao.ProdutoDAO;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
@@ -17,7 +16,7 @@ import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
  *
  */
 @Tabela("TB_PRODUTO_QUANTIDADE")
-public class ProdutoQuantidade extends Produto {
+public class ProdutoVenda extends Produto {
 	
 	@ColunaTabela(dbName = "id", setJavaName = "setId")
 	private Long id;
@@ -31,7 +30,7 @@ public class ProdutoQuantidade extends Produto {
 	@ColunaTabela(dbName = "valor_total", setJavaName = "setValorTotal")
 	private BigDecimal valorTotal;
 	
-	public ProdutoQuantidade() {
+	public ProdutoVenda() {
 		this.quantidade = 0;
 		this.valorTotal = BigDecimal.ZERO;
 	}
@@ -78,7 +77,7 @@ public class ProdutoQuantidade extends Produto {
 			this.produto.setEstoque(estoque - quantidade);
 			ProdutoDAO produtoDAO = new ProdutoDAO();
 			try {
-				produtoDAO.alterar(this.produto);
+  				produtoDAO.alterar(this.produto);
 			} catch (TipoChaveNaoEncontradaException e) {
 				throw new RuntimeException(e);
 			} catch (DAOException e) {
