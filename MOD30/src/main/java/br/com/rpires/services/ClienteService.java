@@ -31,13 +31,7 @@ public class ClienteService extends GenericService<Cliente, Long> implements ICl
 
 	@Override
 	public Cliente buscarPorCPF(Long cpf) throws DAOException {
-		try {
-			return this.dao.consultar(cpf);
-		} catch (MaisDeUmRegistroException | TableException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+		return this.dao.consultar(cpf);
 	}
 
 //	@Override

@@ -35,12 +35,7 @@ public class ClienteDAOTest {
 	public void end() throws DAOException {
 		Collection<Cliente> list = clienteDao.buscarTodos();
 		list.forEach(cli -> {
-			try {
-				clienteDao.excluir(cli.getCpf());
-			} catch (DAOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			clienteDao.excluir(cli.getCpf());
 		});
 	}
 	
@@ -172,12 +167,7 @@ public class ClienteDAOTest {
 		assertTrue(list.size() == 2);
 		
 		list.forEach(cli -> {
-			try {
-				clienteDao.excluir(cli.getCpf());
-			} catch (DAOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			clienteDao.excluir(cli.getCpf());
 		});
 		
 		Collection<Cliente> list1 = clienteDao.buscarTodos();

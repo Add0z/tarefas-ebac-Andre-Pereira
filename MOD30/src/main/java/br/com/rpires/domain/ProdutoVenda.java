@@ -76,13 +76,7 @@ public class ProdutoVenda extends Produto {
 			this.valorTotal = novoTotal;
 			this.produto.setEstoque(estoque - quantidade);
 			ProdutoDAO produtoDAO = new ProdutoDAO();
-			try {
-  				produtoDAO.alterar(this.produto);
-			} catch (TipoChaveNaoEncontradaException e) {
-				throw new RuntimeException(e);
-			} catch (DAOException e) {
-				throw new RuntimeException(e);
-			}
+			produtoDAO.alterar(this.produto);
 
 		} else {
 			System.out.println("IMPOSSÍVEL REALIZAR VENDA - ESTOQUE INSUFICIENTE");

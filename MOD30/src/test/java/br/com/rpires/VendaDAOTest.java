@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.time.Instant;
 import java.util.Collection;
 
-import br.com.rpires.dao.generic.jdbc.ConnectionFactory;
+import main.java.br.com.rpires.dao.generic.jdbc.ConnectionFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

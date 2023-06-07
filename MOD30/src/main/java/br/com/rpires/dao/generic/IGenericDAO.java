@@ -1,6 +1,7 @@
 package br.com.rpires.dao.generic;
 
 import br.com.rpires.dao.Persistente;
+import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
 import br.com.rpires.exceptions.DAOException;
 import br.com.rpires.exceptions.MaisDeUmRegistroException;
 import br.com.rpires.exceptions.TableException;
@@ -22,7 +23,7 @@ public interface IGenericDAO <T extends Persistente, E extends Serializable> {
      * @param entity a ser cadastrado
      * @return retorna verdadeiro para cadastrado e falso para não cadastrado
      */
-    public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException, DAOException;
+    public Boolean cadastrar(T entity) throws TipoChaveNaoEncontradaException, DAOException, TipoChaveNaoEncontradaException;
 
     /**
      * Método para excluir um registro do banco de dados

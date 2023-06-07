@@ -18,12 +18,12 @@ import anotacao.ColunaTabela;
 import anotacao.Tabela;
 import anotacao.TipoChave;
 import br.com.rpires.dao.Persistente;
-import br.com.rpires.dao.generic.jdbc.ConnectionFactory;
-import br.com.rpires.exceptions.DAOException;
-import br.com.rpires.exceptions.MaisDeUmRegistroException;
-import br.com.rpires.exceptions.TableException;
-import br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
-import br.com.rpires.exceptions.TipoElementoNaoConhecidoException;
+import main.java.br.com.rpires.dao.generic.jdbc.ConnectionFactory;
+import main.java.br.com.rpires.exceptions.DAOException;
+import main.java.br.com.rpires.exceptions.MaisDeUmRegistroException;
+import main.java.br.com.rpires.exceptions.TableException;
+import main.java.br.com.rpires.exceptions.TipoChaveNaoEncontradaException;
+import main.java.br.com.rpires.exceptions.TipoElementoNaoConhecidoException;
 
 /**
  * @author rodrigo.pires

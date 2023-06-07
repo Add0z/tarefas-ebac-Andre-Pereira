@@ -38,12 +38,7 @@ public class ProdutoDAOTest {
 	public void end() throws DAOException {
 		Collection<Produto> list = produtoDao.buscarTodos();
 		list.forEach(prod -> {
-			try {
-				produtoDao.excluir(prod.getCodigo());
-			} catch (DAOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			produtoDao.excluir(prod.getCodigo());
 		});
 	}
 
