@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+	<h:body>
+	
+		<p:outputLabel value="Olá Bem vindo a loja online MOD38" /><br/>
+		<h:form id="menu">
+			<p:menubar>
+				<p:submenu label="Cadastro" icon="pi pi-fw pi-user">
+					<p:menuitem value="Cliente" icon="pi pi-fw pi-user-plus" action="#{indexController.redirectCliente()}"/>
+					<p:menuitem value="Produto" icon="pi pi-fw pi-inbox" action="#{indexController.redirectProduto()}"/>
+				</p:submenu>
+				<p:submenu label="Venda" icon="pi pi-fw pi-shopping-cart">
+					<p:menuitem value="Venda" icon="pi pi-fw pi-shopping-cart" action="#{indexController.redirectVenda()}"/>
+				</p:submenu>
+			</p:menubar>
+		</h:form>
+		<div class="product card">
+    <h:form>
+        <p:dataScroller value="#{produtoController.produtos}" var="prod" chunkSize="10" mode="inline"
+                        scrollHeight="500">
+            <f:facet name="header">
+                Delize para ver mais produtos
+            </f:facet>
+
+            <div class="product">
+                <div class="product-list-item p-5">
+<!--                     <p:graphicImage name="demo/images/product/#{product.image}"/>
+ -->                    <div class="product-list-detail">
+                        <div class="product-name">"#{prod.nome}"</div>
+                        <div class="product-description">"#{prod.descricao}"</div>
+<!--                         <p:rating readonly="true" value="#{product.rating}"/>
+ -->                       <!--  <i class="pi pi-tag product-category-icon"/><span
+                            class="product-category">#{product.category}</span> -->
+                    </div>
+                    <div class="product-list-action">
+                        <h:outputText value="#{prod.valor}" styleClass="product-price">
+                            <f:convertNumber currencySymbol="R$" type="currency"/>
+                        </h:outputText>
+                         <p:commandButton value="Comprar" icon="pi pi-shopping-cart" disabled="#{prod.inventoryStatus == 'OUTOFSTOCK'}"
+                							 action="#{indexController.redirectVendaProd()}">
+    								<f:param name="prodNome" value="#{prod.nome}" />
+						</p:commandButton>
+<!--                         <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
+ -->                    </div>
+                </div>
+            </div>
+        </p:dataScroller>
+    </h:form>
+</div>
+	
+	</h:body>
+</html>
