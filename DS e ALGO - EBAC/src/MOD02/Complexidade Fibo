@@ -1,0 +1,10 @@
+RECURSIVA
+Como cada chamada recursiva é independente e envolve uma quantidade constante de trabalho,
+a complexidade assintótica do algoritmo é O(2^n).
+
+Dinamica
+A versão recursiva exponencialmente complexa,
+pois evita recálculos repetidos dos valores de Fibonacci e reduz a complexidade para uma solução linear O(n).
+
+
+
