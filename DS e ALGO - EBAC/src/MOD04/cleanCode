@@ -1,0 +1,26 @@
+Atividade 1
+    1.1 - Nomes bem escolhidos podem evitar ambiguidades e erros de interpretação.
+          Uma boa prática é utilizar nomes que reflitam o propósito da entidade representada,
+          evitando abreviações obscuras ou códigos enigmáticos.
+          Além de facilitar a identificação de objeto em questão através dos padrões de nomenclatura.
+
+     1.2 - Ao abordar a causa raiz, você está garantindo que o problema seja eliminado de forma definitiva,
+           em vez de apenas mascarar os sintomas.
+           Essa abordagem reduz a ocorrência de problemas recorrentes e melhora a qualidade geral do código.
+
+     1.3 - Com isso o desenvolvedor é incentivado a identificar partes do código que podem ser aprimoradas,
+           mesmo que essas partes não estejam diretamente relacionadas à tarefa que estão realizando.
+           Eles são encorajados a fazer pequenas melhorias no código existente, como refatorações,
+           remoção de duplicação, simplificação de lógica, melhoria da legibilidade etc.
+
+
+Atividade 2
+    2.1 - 1- A assinatura do método `somaNumeros` está ferindo o princípio de código limpo conhecido como "Princípio da Quantidade de Argumentos" ou "Princípio do Número de Parâmetros".
+            Esse princípio sugere que métodos devem ter um número reduzido de parâmetros para evitar a complexidade e melhorar a legibilidade do código.
+            No caso dessa assinatura, o método possui seis parâmetros, o que pode dificultar o entendimento do propósito do método e torná-lo mais suscetível a erros na passagem de argumentos.
+
+          2- A assinatura do método `oPaiTaOn` está ferindo o princípio de código limpo conhecido como "Princípio da Nomenclatura Significativa".
+          Esse princípio enfatiza a importância de utilizar nomes significativos e descritivos para as entidades do código.
+
+          3- O metodo com nome "checaSaldoEAtualiza" fere o princípio de código limpo "Princípio da Responsabilidade Única" sugere que um método deve ter uma única responsabilidade claramente definida.
+             Se esse método estiver realizando mais tarefas além de checar o saldo e atualizá-lo, poderia ser uma violação desse princípio.
