@@ -10,7 +10,7 @@ public class Troca {
             int k =  moedas[i];
                 int v = valor / moedas[i];
                 valor = valor % moedas[i];
-                troco.put(k,v);
+                if (v != 0){troco.put(k,v);}
                 calculadora(valor, i + 1, moedas, troco);
         }
 
@@ -20,11 +20,12 @@ public class Troca {
 
 
     public static void main(String[] args) {
-        int valor = 18;
+        int valor = 16;
         int[] moedas = {5,2,1};
         HashMap<Integer, Integer> troco = new HashMap<>();
 
         calculadora(valor,0,moedas,troco);
+        System.out.println("Valor para troco de R$" + valor );
         troco.forEach((k, v) -> System.out.println("notas de R$" + k  +": "+  v + " unidades"));
 
     }
