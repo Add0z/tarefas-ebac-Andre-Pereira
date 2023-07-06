@@ -36,8 +36,6 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     );
 
     @Query("SELECT a FROM Animal a WHERE a.dataEntrada >= :startDate AND a.dataEntrada <= :endDate")
-    List<Animal> FindMonthAnimals(
-            @Param("startDate") Date startDate,
-            @Param("endDate") Date endDate
-    );
+    List<Animal> FindMonthAnimals(LocalDate startDate, LocalDate endDate);
+
 }

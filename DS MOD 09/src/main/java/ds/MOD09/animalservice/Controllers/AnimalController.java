@@ -1,6 +1,8 @@
 package ds.MOD09.animalservice.Controllers;
 import ds.MOD09.animalservice.entidades.Animal;
 import ds.MOD09.animalservice.repositorios.AnimalRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -64,10 +66,15 @@ public class AnimalController {
         return animalRepository.FindEmployees(startDate, endDate);
     }
 
+    // /month?startDate=2023-02-05&endDate=2023-07-05
+//    http://localhost:8082/animais/month?size=3&startDate=2023-02-05&endDate=2023-07-05
     @GetMapping("/month")
-    private List<Animal> FindMonthAnimals() {
-        Date startDate = Date.valueOf("2023-02-05");
-        Date endDate =  Date.valueOf("2023-07-05");
+    private List<Animal> FindMonthAnimals(
+            @RequestParam(name = "startDate",required = true)
+            @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate startDate,
+            @RequestParam(name = "endDate",required = true)
+            @DateTimeFormat(pattern = "dd/MM/yyyy") LocalDate endDate)
+             {
         return animalRepository.FindMonthAnimals(startDate, endDate);
     }
 }
