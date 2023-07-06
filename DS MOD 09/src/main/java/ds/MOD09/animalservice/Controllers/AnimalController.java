@@ -3,6 +3,8 @@ import ds.MOD09.animalservice.entidades.Animal;
 import ds.MOD09.animalservice.repositorios.AnimalRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +59,16 @@ public class AnimalController {
 
     @GetMapping("/employees")
     private List<String> FindEmployees() {
-        return animalRepository.FindEmployees();
+        Date startDate = Date.valueOf("2023-02-05");
+        Date endDate =  Date.valueOf("2023-07-05");
+        return animalRepository.FindEmployees(startDate, endDate);
+    }
+
+    @GetMapping("/month")
+    private List<Animal> FindMonthAnimals() {
+        Date startDate = Date.valueOf("2023-02-05");
+        Date endDate =  Date.valueOf("2023-07-05");
+        return animalRepository.FindMonthAnimals(startDate, endDate);
     }
 }
 
