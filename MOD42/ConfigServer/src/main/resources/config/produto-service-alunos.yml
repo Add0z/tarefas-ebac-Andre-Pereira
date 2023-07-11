@@ -11,3 +11,5 @@ spring:
         uri: mongodb://admin:admin@127.0.0.1:27017/ebac?authSource=admin&retryWrites=true&w=majority
         database: produto
         auto-index-creation: true
+
+application-version: 1.0

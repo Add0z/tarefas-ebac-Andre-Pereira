@@ -4,16 +4,18 @@ package ds.MOD09.animalservice.entidades;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long AnimalId;
 
-    public Integer getId() {
-        return id;
+    public Long getId() {
+        return AnimalId;
     }
 
 
@@ -35,8 +37,20 @@ public class Animal {
     @Column(nullable = false)
     private String condicaoDeChegada;
 
-    @Column(nullable = false)
-    private String nomeRecebedor;
+    @ManyToOne
+    @JoinColumn(name = "cuidador_id", nullable = false)
+    private Cuidador cuidador;
+
+//    public Integer obterIdCuidador(String nomeCuidador) {
+//        Cuidador cuidador = cuidadorRepository.findByNome(nomeCuidador);
+//        if (cuidador != null) {
+//            return cuidador.getId();
+//        }
+//        return null; // ou lance uma exceção se necessário
+//    }
+
+
+
 
     @Column
     private Date dataObito;
@@ -92,12 +106,12 @@ public class Animal {
         this.condicaoDeChegada = condicaoDeChegada;
     }
 
-    public String getNomeRecebedor() {
-        return nomeRecebedor;
+    public Cuidador getCuidador() {
+        return cuidador;
     }
 
-    public void setNomeRecebedor(String nomeRecebedor) {
-        this.nomeRecebedor = nomeRecebedor;
+    public void setCuidador(Cuidador cuidador) {
+        this.cuidador = cuidador;
     }
 
     public Date getDataObito() {

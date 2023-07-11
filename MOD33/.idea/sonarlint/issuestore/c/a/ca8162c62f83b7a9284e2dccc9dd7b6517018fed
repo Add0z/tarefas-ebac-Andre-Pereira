@@ -1,0 +1,7 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(óÎ °ùÿÿÿÿ
+V	java:S125 "<This block of commented-out lines of code should be removed.( ¹«µùÿÿÿÿ
+Q	java:S125*"<This block of commented-out lines of code should be removed.(ÇƒŸä
+V	java:S125D"<This block of commented-out lines of code should be removed.(˜†ûÿÿÿÿ
+K
+java:S1068"0Remove this unused "acessorioDao" private field.(”êÃâûÿÿÿÿ

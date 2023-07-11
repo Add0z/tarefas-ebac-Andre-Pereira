@@ -1,0 +1,9 @@
+
+t
+java:S2293:"YReplace the type specification in this constructor call with the diamond operator ("<>").(›…©¶ÿÿÿÿÿ
+M
+java:S1128"8Remove this unused import 'javax.persistence.OneToMany'.(«õù;
+I
+java:S1128".Remove this unused import 'java.time.Instant'.(Â‚éñÿÿÿÿÿ
+@
+java:S1128"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê

@@ -1,0 +1,3 @@
+Modifique o código do serviço criado no módulo para criar uma API que retorne a quantidade de animais que cada funcionário do abrigo resgatou ao longo de um intervalo de datas.
+
+O intervalo máximo das datas é de um ano.
