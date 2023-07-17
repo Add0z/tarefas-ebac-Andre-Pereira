@@ -29,7 +29,8 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     @Query("SELECT a FROM Animal a WHERE a.dataSaida IS NOT NULL AND a.especie = 'gato'")
     List<Animal> FindAdoptedCat();
 
-    @Query("SELECT a.cuidador, COUNT(*) as quantidadeAnimais FROM Animal a WHERE a.dataEntrada >= :startDate AND a.dataEntrada <= :endDate GROUP BY a.cuidador")
+    @Query("SELECT a.cuidador, COUNT(*) as quantidadeAnimais FROM Animal a WHERE a.dataEntrada >= :startDate AND a.dataEntrada <= :endDate " +
+            "GROUP BY a.cuidador")
     List<String> FindEmployees(
             @Param("startDate") Date startDate,
             @Param("endDate") Date endDate

@@ -1,0 +1,20 @@
+server:
+  port: 8083
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: google
+          uri: https://google.com
+          predicates:
+            - Path=/search**
+
