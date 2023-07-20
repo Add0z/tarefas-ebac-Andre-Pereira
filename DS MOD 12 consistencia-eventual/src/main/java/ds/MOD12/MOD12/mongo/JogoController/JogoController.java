@@ -1,8 +1,8 @@
-package ds.MOD12.DS.MOD2.consistenciaeventual.JogoController;
+package ds.MOD12.MOD12.mongo.JogoController;
 
 
-import ds.MOD12.DS.MOD2.consistenciaeventual.jogoService.JogoServ;
-import ds.MOD12.DS.MOD2.consistenciaeventual.modelo.Jogo;
+import ds.MOD12.MOD12.mongo.jogoService.JogoServ;
+import ds.MOD12.MOD12.mongo.modelo.Jogo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

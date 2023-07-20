@@ -1,7 +1,7 @@
-package ds.MOD12.DS.MOD2.consistenciaeventual.repository;
+package ds.MOD12.MOD12.mongo.repository;
 
 
-import ds.MOD12.DS.MOD2.consistenciaeventual.modelo.Jogo;
+import ds.MOD12.MOD12.mongo.modelo.Jogo;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

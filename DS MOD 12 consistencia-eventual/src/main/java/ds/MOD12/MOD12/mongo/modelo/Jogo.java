@@ -1,10 +1,9 @@
-package ds.MOD12.DS.MOD2.consistenciaeventual.modelo;
+package ds.MOD12.MOD12.mongo.modelo;
 
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.lang.annotation.Documented;
 
 @Document("Jogo")
 public class Jogo {

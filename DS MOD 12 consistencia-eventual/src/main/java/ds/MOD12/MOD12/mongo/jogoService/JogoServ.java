@@ -1,8 +1,8 @@
-package ds.MOD12.DS.MOD2.consistenciaeventual.jogoService;
+package ds.MOD12.MOD12.mongo.jogoService;
 
 
-import ds.MOD12.DS.MOD2.consistenciaeventual.repository.RepositoryJogo;
-import ds.MOD12.DS.MOD2.consistenciaeventual.modelo.Jogo;
+import ds.MOD12.MOD12.mongo.modelo.Jogo;
+import ds.MOD12.MOD12.mongo.repository.RepositoryJogo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Component;

@@ -1,13 +1,13 @@
-package ds.MOD12.DS.MOD2.consistenciaeventual;
+package ds.MOD12.MOD12.mongo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DsMod12ConsistenciaEventualApplication {
+public class Mod12MongoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DsMod12ConsistenciaEventualApplication.class, args);
+		SpringApplication.run(Mod12MongoApplication.class, args);
 	}
 
 }

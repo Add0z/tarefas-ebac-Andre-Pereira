@@ -1,10 +1,10 @@
-package ds.MOD12.DS.MOD2.consistenciaeventual;
+package ds.MOD12.MOD12.mongo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DsMod12ConsistenciaEventualApplicationTests {
+class Mod12MongoApplicationTests {
 
 	@Test
 	void contextLoads() {
