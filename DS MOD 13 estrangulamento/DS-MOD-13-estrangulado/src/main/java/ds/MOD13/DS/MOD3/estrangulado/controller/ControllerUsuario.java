@@ -3,22 +3,33 @@ package ds.MOD13.DS.MOD3.estrangulado.controller;
 
 import ds.MOD13.DS.MOD3.estrangulado.entidades.Usuario;
 import ds.MOD13.DS.MOD3.estrangulado.service.ServiceUsuario;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import ds.MOD13.DS.MOD3.estrangulado.service.ServicoNovoUsuario;
+import ds.MOD13.DS.MOD3.estrangulado.vo.UsuarioVO;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/usuarios")
 public class ControllerUsuario {
 
-    private final ServiceUsuario serviceUsuario;
 
-    public ControllerUsuario(ServiceUsuario serviceUsuario) {
-        this.serviceUsuario = serviceUsuario;
+    private final ServicoNovoUsuario servicoNovoUsuario;
+
+    public ControllerUsuario( ServicoNovoUsuario servicoNovoUsuario) {
+
+        this.servicoNovoUsuario = servicoNovoUsuario;
     }
 
     @GetMapping
-    public Iterable<Usuario> encontrarTodos(){
-        return serviceUsuario.encontrarTodos();
+    public Iterable<UsuarioVO> encontrarTodos(){
+        return servicoNovoUsuario.encontrarTodos();
     }
+
+    @PostMapping
+    public UsuarioVO criarUsuario(@RequestBody UsuarioVO usuario){
+
+
+        return servicoNovoUsuario.criarNovoUsuario(usuario);
+    }
+
+
 }

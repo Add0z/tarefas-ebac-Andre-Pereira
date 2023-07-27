@@ -17,6 +17,16 @@ public class Usuario {
 
     private String idade;
 
+    public Usuario() {}
+
+    public Usuario(Long id, String nome, String login, String idade) {
+        this.id = id;
+        this.nome = nome;
+        this.login = login;
+        this.idade = idade;
+    }
+
+    public Long getId() {return id;}
 
     public String getNome() {
         return nome;
