@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping(path = "/logs")
+@RequestMapping("/logs")
 public class LogsController {
 
 
@@ -26,18 +26,18 @@ public class LogsController {
     private RestTemplate restTemplate;
 
     @GetMapping
-    public String getLogs() {
-
+    public String mostraMensagem() {
         final double mensagem = Math.random();
 
-        LOGGER.info("LogsController {}", mensagem);
+        LOGGER.info("Gerei uma mensagem {}", mensagem);
 
-        if (urlServico2!=null && urlServico2.length() > 0) {
-            final String mensagemDeles = restTemplate.exchange(urlServico2, HttpMethod.GET, null, new ParameterizedTypeReference<String>() {}).getBody();
+        if (urlServico2.length() > 0) {
+            final String mensagemDeles = restTemplate
+                    .exchange(urlServico2, HttpMethod.GET, null,
+                            new ParameterizedTypeReference<String>() {}).getBody();
 
-            return "Enviado: " + mensagem + " E Devolveu: (" + mensagemDeles + ")";
+            return "Eu disse isso aqui: " + mensagem + " e eles disseram isso: (" + mensagemDeles + ")";
         }
-
-         return "e eu deveria parar por aqui";
+        return "E eu deveria parar por aqui.";
     }
 }
