@@ -1,0 +1,12 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ä×¦«
+c	java:S100$"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂÂÖ™
+h	java:S100)"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É†úïøÿÿÿÿ
+h	java:S100."NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤öÂºúÿÿÿÿ
+c	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹×§¬
+c	java:S1008"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óŒ¾‚
+h	java:S100="NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›éÕ…ûÿÿÿÿ
+c	java:S100B"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Úˆÿ×
+h	java:S100L"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òø¼òøÿÿÿÿ
+Q
+java:S1068"6Remove this unused "cuidadorRepository" private field.(Ö‘þ£üÿÿÿÿ

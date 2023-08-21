@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$/../../CategoriaMeme" dumb="true">
+      <sourceFolder url="file://$MODULE_DIR$/../../CategoriaMeme" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../CategoriaMeme/src/test/java" isTestSource="false" />
+    </content>
+  </component>
+  <component name="SonarLintModuleSettings">
+    <option name="uniqueId" value="4cb31873-95aa-4ae9-a2ff-69c2dfbbd341" />
+  </component>
+</module>

@@ -1,0 +1,19 @@
+
+¨
+java:S3577"‘Rename class "ClienteDaoJpaTest3" to match the regular expression: '^((Test|IT)[a-zA-Z0-9_]+|[A-Z][a-zA-Z0-9_]*(Test|Tests|TestCase|IT|ITCase))$'(úÜû¢
+6
+java:S5785Õ"Use assertNotNull instead.(¯í†øÿÿÿÿ
+0
+java:S5785Ö"Use assertEquals instead.(–±ø
+6
+java:S5785á"Use assertNotNull instead.(¿ˆí«ıÿÿÿÿ
+0
+java:S5785â"Use assertEquals instead.(µœ«¸
+1
+java:S5785í"Use assertNotNull instead.(áş‚˜
+5
+java:S5785î"Use assertEquals instead.(ëİŠ±ûÿÿÿÿ
+6
+java:S5785ñ"Use assertNotNull instead.(î¦€¶øÿÿÿÿ
+0
+java:S5785ò"Use assertEquals instead.(úà

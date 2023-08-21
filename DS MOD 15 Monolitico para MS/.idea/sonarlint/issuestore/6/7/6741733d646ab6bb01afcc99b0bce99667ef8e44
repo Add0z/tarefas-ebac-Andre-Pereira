@@ -1,0 +1,6 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(È®±î8ÅÏ´°Ÿ1
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤þËí8ÆÏ´°Ÿ1
+]	java:S125"<This block of commented-out lines of code should be removed.(¼è÷ïøÿÿÿÿ8ÇÏ´°Ÿ1
+G
+java:S1128	"*Remove this unused import 'java.sql.Date'.(ÙÀ½Ê8ÇÏ´°Ÿ1

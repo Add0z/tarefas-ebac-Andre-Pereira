@@ -17,7 +17,9 @@ D
 src/MOD03/Troca.java,0/6/0695d7ecba6732b24be2ee62468198843a7bcf46
 `
 0src/MOD06/vantagens e desvantagens monolito e ms,9/f/9fc9e8cfc47964f367d686256312b7c83ac944d0
+E
+src/MOD07/JenkinsFile,d/d/dd583726650c0a1aeab483aac5eb9d22c7517bae
 J
 src/MOD05/Calculadora.java,c/5/c5c115a0994464bf3e85680cf595a16c94f2ad3d
 E
-src/MOD07/JenkinsFile,d/d/dd583726650c0a1aeab483aac5eb9d22c7517bae
+src/MOD07/Jenkinsfile,8/9/89d5625b351525d906ecbbbcc83e5aec0f7d9d64
