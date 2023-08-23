@@ -41,7 +41,7 @@ public class ComunidadeService {
 //
 //    }
 
-    public String MemeDoDia() {
+    public Object MemeDoDia() {
         List<Map<String, Object>> memes = apiServiceMeme.fetchDataFromApi("/memes");
 
         if (memes == null || memes.isEmpty()) {
@@ -53,9 +53,7 @@ public class ComunidadeService {
         int randomMemeIndex = random.nextInt(memes.size() - min) + min;
         Map<String, Object> meme = memes.get(randomMemeIndex);
 
-        Gson gson = new Gson();
-        String jsonMeme = gson.toJson(meme);
-        return jsonMeme;
+        return meme;
     }
 
     // TODO: 2023/08/23 Um melhor jeito de fazer isso é criar um GET em MemeRepo @Query(SELECT * FROM Meme ORDER BY RAND() LIMIT 1;)

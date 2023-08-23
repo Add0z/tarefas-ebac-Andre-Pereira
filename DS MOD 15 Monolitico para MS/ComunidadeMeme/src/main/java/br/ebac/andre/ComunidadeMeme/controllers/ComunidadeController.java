@@ -17,7 +17,7 @@ public class ComunidadeController {
 
 
         @GetMapping("/memeDoDia")
-        public String MemeDoDia(){
+        public Object MemeDoDia(){
             return comunidadeService.MemeDoDia();
         }
 }
