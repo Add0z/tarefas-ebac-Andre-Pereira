@@ -10,6 +10,8 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +22,8 @@ import java.util.*;
 
 @Component
 public class MemeService {
+
+    Logger logger = LogManager.getLogger(MemeService.class);
 
     @Autowired
     private MemeRepo memeRepo;
@@ -34,18 +38,18 @@ public class MemeService {
 
 
     public List<Meme> listaTodosMemes(){
+        logger.info("\u001B[34mBuscando lista de memes: " + memeRepo.count());
         return memeRepo.findAll();
     }
 
     public Meme buscaMemeId(Long id){
+        logger.info("\u001B[34mBuscando meme id: " + id);
         return memeRepo.findById(id).get();
     }
 
 
 
-    // TODO: 2023/08/15 Criar sistema de logs
     // TODO: 2023/08/19 adicionar UNIQUE para o nome do usuario e categoria
-    // TODO: 2023/08/19 tratar erro caso usuario ou categoria ja existir e o SQL recusar ( só inverter o sentido do erro da API, dando throw caso ja haja o usuario ou categoria)
     public Object novoMeme(Meme meme) throws ApiResponseException {
         StringBuilder errolog = new StringBuilder();
 
@@ -53,6 +57,7 @@ public class MemeService {
         boolean isUsuarioNameValid = isUsuarioNameInApiResponse(meme);
 
         if (!isCategoriaValid) {
+            logger.error("Categoria não encontrada: " + meme.getCategoria());
             errolog.append("Categoria não encontrada: ").append(meme.getCategoria());
         }
 
@@ -61,6 +66,7 @@ public class MemeService {
                 errolog.append(" " +
                         ";" + " ");
             }
+            logger.error("Usuário não encontrado: " + meme.getUsuario());
             errolog.append("Usuário não encontrado: ").append(meme.getUsuario());
         }
 
@@ -69,7 +75,7 @@ public class MemeService {
         }
 
         if (isCategoriaValid && isUsuarioNameValid) {
-
+            logger.info("\u001B[34mMeme inserido com sucesso! :" + meme.getNome());
             return memeRepo.save(meme);
         }
 
@@ -101,27 +107,6 @@ public class MemeService {
     }
 
 
-
-
-
-//    public boolean isCategoriaInApiResponse(Meme meme) {
-//        String targetCategoria = meme.getCategoria();
-//
-//        List<String> apiResponses = apiServiceCategoria.fetchDataFromApi().flux().collectList().block();
-//
-//        if (apiResponses != null) {
-//            for (String response : apiResponses) {
-//                if (response.contains(targetCategoria)) {
-//                    System.out.println("Categoria encontrada");
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        System.out.println("Categoria não encontrada");
-//        return false;
-//    }
-
     public boolean isCategoriaInApiResponse(Meme meme) {
         String tergetCategoriaName = meme.getCategoria();
         String apiResponses = apiServiceCategoria.fetchDataFromApi();
@@ -133,12 +118,10 @@ public class MemeService {
             String categoria = categoriaObject.get("nome").getAsString();
 
             if (categoria.equals(tergetCategoriaName)) {
-                System.out.println("Categoria encontrada");
                 return true;
             }
         }
 
-        System.out.println("Categoria não encontrada");
         return false;
     }
 
@@ -146,20 +129,25 @@ public class MemeService {
 
     public List<Meme> buscaMemesPorUsuario(String usuario){
         try {
+            logger.info("\u001B[34mBuscando memes por usuario: " + usuario + "\u001B[0m");
             return memeRepo.buscaMemesPorUsuario(usuario);
         } catch (ApiResponseException e) {
+            logger.error("Usuario não encontrado " + usuario);
             throw new ApiResponseException("Usuario não encontrado " + usuario);
         }
     }
 
     public void deletaMeme(Long id){
+        logger.info("\u001B[34mDeletando meme: " + id);
         memeRepo.deleteById(id);
     }
 
     public List<Meme> MemePorCategoria(String categoria){
         try {
+            logger.info("\u001B[34mBuscando memes por categoria: " + categoria + "\u001B[0m");
             return memeRepo.MemePorCategoria(categoria);
         } catch (ApiResponseException e) {
+            logger.error("Categoria não encontrada" + categoria);
             throw new ApiResponseException("Categoria não encontrada" + categoria);
         }
     }

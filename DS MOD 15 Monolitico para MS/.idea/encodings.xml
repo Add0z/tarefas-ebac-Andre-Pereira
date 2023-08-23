@@ -2,6 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/CategoriaMeme/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ComunidadeMeme/src/test/java/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ComunidadeMeme/src/test/java/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MemeMeme/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/UsuarioMeme/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/memelandia/src/main/java" charset="UTF-8" />

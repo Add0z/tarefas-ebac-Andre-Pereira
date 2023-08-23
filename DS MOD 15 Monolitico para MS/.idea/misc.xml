@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="org.springframework.boot.context.properties.ConfigurationProperties" />
+    </list>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -8,6 +13,7 @@
         <option value="$PROJECT_DIR$/CategoriaMeme/pom.xml" />
         <option value="$PROJECT_DIR$/MemeMeme/pom.xml" />
         <option value="$PROJECT_DIR$/UsuarioMeme/pom.xml" />
+        <option value="$PROJECT_DIR$/ComunidadeMeme/pom.xml" />
       </list>
     </option>
   </component>

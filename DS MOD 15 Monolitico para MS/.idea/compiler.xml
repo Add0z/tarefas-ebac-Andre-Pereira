@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ComunidadeMeme" />
         <module name="memelandia" />
         <module name="MemeMeme" />
         <module name="CategoriaMeme" />
@@ -23,6 +24,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="CategoriaMeme" options="-parameters" />
+      <module name="ComunidadeMeme" options="-parameters" />
       <module name="MemeMeme" options="-parameters" />
       <module name="UsuarioMeme" options="-parameters" />
       <module name="memelandia" options="-parameters" />

@@ -1,4 +1,22 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¤Šñ¨8Ï•Ø¦Ÿ1
+l
+java:S1192"JDefine a constant instead of duplicating this literal "\u001B[0m" 4 times.(ªªŸúûÿÿÿÿ8¶”’õ¡1
+x
+java:S2629"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(‘Ç¡8¶”’õ¡1
+Y
+java:S2629""7Use the built-in formatting to construct this argument.(ÆÉ†ùÿÿÿÿ8¶”’õ¡1
+T
+java:S2629&"7Use the built-in formatting to construct this argument.(ÙÑ³ó8¶”’õ¡1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¤Šñ¨8·”’õ¡1
 m
-java:S3655"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ğô¡­8Ó•Ø¦Ÿ1
+java:S3655'"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ğô¡­8¹”’õ¡1
+c
+java:S3457"AFormat specifiers should be used instead of string concatenation.(ªªŸúûÿÿÿÿ8¼”’õ¡1
+]
+java:S3457"AFormat specifiers should be used instead of string concatenation.(‘Ç¡8¼”’õ¡1
+c
+java:S3457""AFormat specifiers should be used instead of string concatenation.(ÆÉ†ùÿÿÿÿ8¼”’õ¡1
+^
+java:S3457&"AFormat specifiers should be used instead of string concatenation.(ÙÑ³ó8½”’õ¡1
+u
+java:S1128	"SRemove this unused import 'org.springframework.beans.factory.annotation.Qualifier'.(íàÄ®ıÿÿÿÿ8½”’õ¡1
