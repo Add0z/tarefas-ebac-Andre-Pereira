@@ -1,0 +1,5 @@
+
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(öµ¹;8ıŞ±¢1
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€¿×¥şÿÿÿÿ8õ”®¢1
+U
+java:S1128"8Remove this unused import 'com.google.gson.JsonElement'.(ğ†˜³8˜Ì­ ¢1

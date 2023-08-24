@@ -1,0 +1,45 @@
+
+~
+java:S2629)"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ßÍ¯¬şÿÿÿÿ8÷ª­õ¡1
+T
+java:S2629."7Use the built-in formatting to construct this argument.(’•®Õ8øª­õ¡1
+U
+java:S2629„"7Use the built-in formatting to construct this argument.(ŠÖé¨8øª­õ¡1
+U
+java:S2629"7Use the built-in formatting to construct this argument.(éıŸá8åÙ²õ¡1
+Z
+java:S2629“"7Use the built-in formatting to construct this argument.(¥»ß¼ûÿÿÿÿ8øª­õ¡1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ĞÊ¶¬8ùª­õ¡1
+r
+java:S3655/"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(ˆäàıÿÿÿÿ8†«­õ¡1
+c
+java:S3457)"AFormat specifiers should be used instead of string concatenation.(ßÍ¯¬şÿÿÿÿ8‰«­õ¡1
+^
+java:S3457."AFormat specifiers should be used instead of string concatenation.(’•®Õ8‹«­õ¡1
+O
+java:S11354"2Complete the task associated to this TODO comment.(è‡­¢8«­õ¡1
+^
+java:S3457<"AFormat specifiers should be used instead of string concatenation.(¹Ø¯ó8«­õ¡1
+c
+java:S3457E"AFormat specifiers should be used instead of string concatenation.(´Óú¬úÿÿÿÿ8’«­õ¡1
+c
+java:S3457N"AFormat specifiers should be used instead of string concatenation.(È¥Ò¤øÿÿÿÿ8”«­õ¡1
+T
+java:S1135U"2Complete the task associated to this TODO comment.(Œ·ŒÎÿÿÿÿÿ8–«­õ¡1
+Z	java:S106d"9Replace this use of System.out or System.err by a logger.(µşŠÄıÿÿÿÿ8š«­õ¡1
+Z	java:S106i"9Replace this use of System.out or System.err by a logger.(©ó™”úÿÿÿÿ8š«­õ¡1
+_
+java:S3457„"AFormat specifiers should be used instead of string concatenation.(ŠÖé¨8«­õ¡1
+d
+java:S3457‡"AFormat specifiers should be used instead of string concatenation.(¶•İøúÿÿÿÿ8«­õ¡1
+_
+java:S3457"AFormat specifiers should be used instead of string concatenation.(éıŸá8ùÙ²õ¡1
+p	java:S100‘"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡™æ­ÿÿÿÿÿ8«­õ¡1
+d
+java:S3457“"AFormat specifiers should be used instead of string concatenation.(¥»ß¼ûÿÿÿÿ8«­õ¡1
+_
+java:S3457–"AFormat specifiers should be used instead of string concatenation.(ø…Œè8«­õ¡1
+m
+java:S1128"PRemove this unused import 'br.ebac.andre.MemeMeme.exceptions.ExceptionResponse'.(åí÷8Ÿ«­õ¡1
+E
+java:S1068%"(Remove this unused "meme" private field.(Ì·í8Ÿ«­õ¡1

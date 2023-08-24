@@ -1,0 +1,19 @@
+
+x
+java:S14886"\Immediately return this expression instead of assigning it to the temporary variable "meme".(™È¥Y8—Â ¢1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ËÍøšøÿÿÿÿ8œÜ´ ¢1
+o	java:S100,"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€¿×¥şÿÿÿÿ8¡Ü´ ¢1
+]	java:S125"<This block of commented-out lines of code should be removed.(ÿ¹í¯üÿÿÿÿ8¢Ü´ ¢1
+:
+java:S21193"Save and re-use this "Random".(¼İÅf8£Ü´ ¢1
+]	java:S125<"<This block of commented-out lines of code should be removed.(ÖÁÂøÿÿÿÿ8¦Ü´ ¢1
+N
+java:S1135;"2Complete the task associated to this TODO comment.(šÅø8¦Ü´ ¢1
+N
+java:S1128"1Remove this unused import 'com.google.gson.Gson'.(–§8Â ¢1
+S
+java:S1128"6Remove this unused import 'com.google.gson.JsonArray'.(ÎöêŠ8¦Ü´ ¢1
+U
+java:S1128"8Remove this unused import 'com.google.gson.JsonElement'.(ğ†˜³8¦Ü´ ¢1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¦Ü´ ¢1
